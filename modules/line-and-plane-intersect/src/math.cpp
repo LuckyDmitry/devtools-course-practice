@@ -9,7 +9,7 @@ double globalEpsilon = 1e-9;
 
 namespace internal {
     double getNominator(const Line &line, const Plane &plane) {
-        return plane.getD() + plane.getA() * line.getX() + 
+        return plane.getD() + plane.getA() * line.getX() +
                plane.getB() * line.getY() + plane.getC() * line.getZ();
     }
 
@@ -17,7 +17,8 @@ namespace internal {
         return plane.getA() * line.getM() + plane.getB() * line.getN() +
                plane.getC() * line.getP();
     }
-}
+} // namespace internal
+
 RelativePosition getRelativePosition(const Line &line, const Plane &plane) {
     auto denominator = internal::getDenominator(line, plane);
     auto nominator = internal::getNominator(line, plane);
@@ -40,7 +41,7 @@ Point intersect(const Line &line, const Plane &plane) {
     if (std::fabs(denominator) < globalEpsilon) {
         throw std::runtime_error("Can't be intersected. Check relative pos");
     }
-    
+
     auto t = -nominator / denominator;
 
     Point result;

@@ -2,12 +2,12 @@
 
 #include "include/objects.h"
 
-Point::Point(double n_x, double n_y, double n_z) 
+Point::Point(double n_x, double n_y, double n_z)
         : x(n_x), y(n_y), z(n_z) {
     // Empty constructor
 }
 
-Line::Line(double x, double y, double z, double m, double n, double p) 
+Line::Line(double x, double y, double z, double m, double n, double p)
         : m_x(x), m_y(y), m_z(z), m_m(m), m_n(n), m_p(p) {
     // Empty constructor
 }
@@ -70,7 +70,7 @@ void Line::setP(double p) {
 
 Plane::Plane(double A, double B, double C, double D)
         : m_A(A), m_B(B), m_C(C), m_D(D) {
-
+    // Empty constructor
 }
 
 double Plane::getA() const {
