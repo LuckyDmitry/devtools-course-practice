@@ -17,7 +17,7 @@ namespace internal {
         return plane.getA() * line.getM() + plane.getB() * line.getN() +
                plane.getC() * line.getP();
     }
-} // namespace internal
+}  // namespace internal
 
 RelativePosition getRelativePosition(const Line &line, const Plane &plane) {
     auto denominator = internal::getDenominator(line, plane);

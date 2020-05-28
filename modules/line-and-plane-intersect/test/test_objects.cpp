@@ -10,10 +10,10 @@ class ObjectsTest : public ::testing::Test {
 };
 
 TEST_F(ObjectsTest, can_crate_point) {
-    // Arrange 
+    // Arrange
     double x = 0.;
     double y = 1.2;
-    double z = 2.3; 
+    double z = 2.3;
 
     // Act
     Point point(x, y, z);
@@ -25,7 +25,7 @@ TEST_F(ObjectsTest, can_crate_point) {
 }
 
 TEST_F(ObjectsTest, can_copy_point) {
-    // Arrange 
+    // Arrange
     Point expected(0., 1., 2.);
 
     // Act
@@ -38,10 +38,10 @@ TEST_F(ObjectsTest, can_copy_point) {
 }
 
 TEST_F(ObjectsTest, can_copy_rvalue_point) {
-    // Arrange 
+    // Arrange
     double x = 0.;
     double y = 1.2;
-    double z = 2.3; 
+    double z = 2.3;
 
     // Act
     Point point(Point(x, y, z));
@@ -53,13 +53,13 @@ TEST_F(ObjectsTest, can_copy_rvalue_point) {
 }
 
 TEST_F(ObjectsTest, can_crate_line_by_point_and_vector) {
-    // Arrange 
+    // Arrange
     double x = 0.;
     double y = 1.2;
     double z = 2.3;
     double m = 1.1;
     double n = 1.4;
-    double p = 1.8; 
+    double p = 1.8;
 
     // Act
     Line line(x, y, z, m, n, p);
@@ -74,7 +74,7 @@ TEST_F(ObjectsTest, can_crate_line_by_point_and_vector) {
 }
 
 TEST_F(ObjectsTest, can_create_line_by_two_points) {
-    // Arrange 
+    // Arrange
     double x  = 0.;
     double y  = 1.2;
     double z  = 2.3;
@@ -85,7 +85,7 @@ TEST_F(ObjectsTest, can_create_line_by_two_points) {
     double n  = 1.4;
     double p  = 0.6;
     Line expected(x, y, z, m, n, p);
-    
+
     // Act
     Line line(Point(x, y, z), Point(x1, y1, z1));
 
@@ -99,7 +99,7 @@ TEST_F(ObjectsTest, can_create_line_by_two_points) {
 }
 
 TEST_F(ObjectsTest, can_copy_line) {
-    // Arrange 
+    // Arrange
     double x = 0.;
     double y = 1.2;
     double z = 2.3;
@@ -107,7 +107,7 @@ TEST_F(ObjectsTest, can_copy_line) {
     double n = 1.4;
     double p = 1.8;
     Line expected(x, y, z, m, n, p);
-    
+
     // Act
     Line line(expected);
 
@@ -121,14 +121,14 @@ TEST_F(ObjectsTest, can_copy_line) {
 }
 
 TEST_F(ObjectsTest, can_copy_rvalue_line) {
-    // Arrange 
+    // Arrange
     double x = 0.;
     double y = 1.2;
     double z = 2.3;
     double m = 1.1;
     double n = 1.4;
     double p = 1.8;
-    
+
     // Act
     Line line(Line(x, y, z, m, n, p));
 
@@ -143,12 +143,12 @@ TEST_F(ObjectsTest, can_copy_rvalue_line) {
 
 
 TEST_F(ObjectsTest, can_create_plane) {
-    // Arrange 
+    // Arrange
     double A = 0.;
     double B = 1.2;
     double C = 2.3;
     double D = 1.1;
-    
+
     // Act
     Plane plane(A, B, C, D);
 
@@ -160,13 +160,13 @@ TEST_F(ObjectsTest, can_create_plane) {
 }
 
 TEST_F(ObjectsTest, can_copy_plane) {
-    // Arrange 
+    // Arrange
     double A = 0.;
     double B = 1.2;
     double C = 2.3;
     double D = 1.1;
     Plane expected(A, B, C, D);
-    
+
     // Act
     Plane plane(expected);
 
@@ -178,13 +178,13 @@ TEST_F(ObjectsTest, can_copy_plane) {
 }
 
 TEST_F(ObjectsTest, can_copy_rvalue_plane) {
-    // Arrange 
+    // Arrange
     double A = 0.;
     double B = 1.2;
     double C = 2.3;
     double D = 1.1;
     Plane expected(A, B, C, D);
-    
+
     // Act
     Plane plane(Plane(A, B, C, D));
 
@@ -196,7 +196,7 @@ TEST_F(ObjectsTest, can_copy_rvalue_plane) {
 }
 
 TEST_F(ObjectsTest, can_use_setter_line) {
-    // Arrange 
+    // Arrange
     double x = 0.;
     double y = 1.2;
     double z = 2.3;
@@ -223,7 +223,7 @@ TEST_F(ObjectsTest, can_use_setter_line) {
 }
 
 TEST_F(ObjectsTest, can_use_settrs_plane) {
-    // Arrange 
+    // Arrange
     double A = 0.;
     double B = 1.2;
     double C = 2.3;
