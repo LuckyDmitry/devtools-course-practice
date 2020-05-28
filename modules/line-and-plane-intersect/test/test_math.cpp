@@ -11,7 +11,7 @@ class MathTest : public ::testing::Test {
 };
 
 TEST_F(MathTest, can_intersect_line_and_plane) {
-    // Arrange 
+    // Arrange
     double x = 2.;
     double y = -5.;
     double z = 4.;
@@ -37,7 +37,7 @@ TEST_F(MathTest, can_intersect_line_and_plane) {
 }
 
 TEST_F(MathTest, can_check_relative_position_parallel_line_and_plane) {
-    // Arrange 
+    // Arrange
     double x = -2.;
     double y = 2.;
     double z = 3.;
@@ -61,7 +61,7 @@ TEST_F(MathTest, can_check_relative_position_parallel_line_and_plane) {
 }
 
 TEST_F(MathTest, can_check_relative_position_embedded_line_and_plane) {
-    // Arrange 
+    // Arrange
     double x = 1.;
     double y = -5.;
     double z = 8.;
@@ -85,7 +85,7 @@ TEST_F(MathTest, can_check_relative_position_embedded_line_and_plane) {
 }
 
 TEST_F(MathTest, can_check_relative_position_intersect_line_and_plane) {
-    // Arrange 
+    // Arrange
     double x = 2.;
     double y = -5.;
     double z = 4.;
@@ -109,7 +109,7 @@ TEST_F(MathTest, can_check_relative_position_intersect_line_and_plane) {
 }
 
 TEST_F(MathTest, can_throw_on_intersection_of_embedded_line_and_plane) {
-    // Arrange 
+    // Arrange
     double x = 1.;
     double y = -5.;
     double z = 8.;
