@@ -18,8 +18,7 @@ namespace internal {
                plane.getC() * line.getP();
     }
 }
-
-[[nodiscard]] RelativePosition getRelativePosition(const Line &line, const Plane &plane) {
+RelativePosition getRelativePosition(const Line &line, const Plane &plane) {
     auto denominator = internal::getDenominator(line, plane);
     auto nominator = internal::getNominator(line, plane);
 
@@ -34,12 +33,12 @@ namespace internal {
     }
 }
 
-[[nodiscard]] Point intersect(const Line &line, const Plane &plane) {
+Point intersect(const Line &line, const Plane &plane) {
     auto denominator = internal::getDenominator(line, plane);
     auto nominator = internal::getNominator(line, plane);
 
     if (std::fabs(denominator) < globalEpsilon) {
-        throw std::runtime_error("Can't be intersected. Try to check them with getRelativePosition(...)");
+        throw std::runtime_error("Can't be intersected. Check relative pos");
     }
     
     auto t = -nominator / denominator;

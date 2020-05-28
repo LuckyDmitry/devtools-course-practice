@@ -194,3 +194,51 @@ TEST_F(ObjectsTest, can_copy_rvalue_plane) {
     EXPECT_NEAR(expected.getC(), plane.getC(), ObjectsTest::epsilon);
     EXPECT_NEAR(expected.getD(), plane.getD(), ObjectsTest::epsilon);
 }
+
+TEST_F(ObjectsTest, can_use_setter_line) {
+    // Arrange 
+    double x = 0.;
+    double y = 1.2;
+    double z = 2.3;
+    double m = 1.1;
+    double n = 1.4;
+    double p = 1.8;
+    Line line;
+
+    // Act
+    line.setX(x);
+    line.setY(y);
+    line.setZ(z);
+    line.setM(m);
+    line.setN(n);
+    line.setP(p);
+
+    // Assert
+    EXPECT_NEAR(x, line.getX(), ObjectsTest::epsilon);
+    EXPECT_NEAR(y, line.getY(), ObjectsTest::epsilon);
+    EXPECT_NEAR(z, line.getZ(), ObjectsTest::epsilon);
+    EXPECT_NEAR(n, line.getN(), ObjectsTest::epsilon);
+    EXPECT_NEAR(m, line.getM(), ObjectsTest::epsilon);
+    EXPECT_NEAR(p, line.getP(), ObjectsTest::epsilon);
+}
+
+TEST_F(ObjectsTest, can_use_settrs_plane) {
+    // Arrange 
+    double A = 0.;
+    double B = 1.2;
+    double C = 2.3;
+    double D = 1.1;
+    Plane plane;
+
+    // Act
+    plane.setA(A);
+    plane.setB(B);
+    plane.setC(C);
+    plane.setD(D);
+
+    // Assert
+    EXPECT_NEAR(A, plane.getA(), ObjectsTest::epsilon);
+    EXPECT_NEAR(B, plane.getB(), ObjectsTest::epsilon);
+    EXPECT_NEAR(C, plane.getC(), ObjectsTest::epsilon);
+    EXPECT_NEAR(D, plane.getD(), ObjectsTest::epsilon);
+}

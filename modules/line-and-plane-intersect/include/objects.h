@@ -1,7 +1,7 @@
 // Copyright 2020 Lebedev Alexander
 
-#ifndef MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_OBJECT_H_
-#define MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_OBJECT_H_
+#ifndef MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_OBJECTS_H_
+#define MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_OBJECTS_H_
 
 enum class RelativePosition {
     PARALLEL,
@@ -10,7 +10,7 @@ enum class RelativePosition {
 };
 
 struct Point {
-public:
+ public:
     Point() = default;
 
     Point(const Point &other) = default;
@@ -27,7 +27,7 @@ public:
 };
 
 class Line {
-public:
+ public:
     Line() = default;
 
     explicit Line(double x, double y, double z, double m, double n, double p);
@@ -46,11 +46,11 @@ public:
     double getY() const;
 
     double getZ() const;
-    
+
     double getM() const;
-    
+
     double getN() const;
-    
+
     double getP() const;
 
     // Setters
@@ -59,14 +59,14 @@ public:
     void setY(double y);
 
     void setZ(double z);
-    
+
     void setM(double m);
-    
+
     void setN(double n);
-    
+
     void setP(double p);
 
-private:
+ private:
     double m_x;
     double m_y;
     double m_z;
@@ -76,7 +76,7 @@ private:
 };
 
 class Plane {
-public:
+ public:
     Plane() = default;
 
     explicit Plane(double A, double B, double C, double D);
@@ -89,11 +89,11 @@ public:
 
     // Getters
     double getA() const;
-    
+
     double getB() const;
-    
+
     double getC() const;
-    
+
     double getD() const;
 
     // Setters
@@ -102,14 +102,14 @@ public:
     void setB(double B);
 
     void setC(double C);
-    
+
     void setD(double D);
 
-private:
+ private:
     double m_A;
     double m_B;
     double m_C;
     double m_D;
 };
 
-#endif  // MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_OBJECT_H_
+#endif  // MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_OBJECTS_H_
