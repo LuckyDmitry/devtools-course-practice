@@ -2,8 +2,11 @@
 
 #include <gtest/gtest.h>
 
-#include "include/math.h"
+#include "include/intersection.h"
 #include "include/objects.h"
+
+using namespace Objects3d;
+using namespace math;
 
 class MathTest : public ::testing::Test {
  protected:
@@ -54,7 +57,7 @@ TEST_F(MathTest, can_check_relative_position_parallel_line_and_plane) {
     RelativePosition expected = RelativePosition::PARALLEL;
 
     // Act
-    RelativePosition position = getRelativePosition(line, plane);
+    RelativePosition position = getPosition(line, plane);
 
     // Assert
     EXPECT_EQ(expected, position);
@@ -78,7 +81,7 @@ TEST_F(MathTest, can_check_relative_position_embedded_line_and_plane) {
     RelativePosition expected = RelativePosition::EMBEDDED;
 
     // Act
-    RelativePosition position = getRelativePosition(line, plane);
+    RelativePosition position = getPosition(line, plane);
 
     // Assert
     EXPECT_EQ(expected, position);
@@ -102,7 +105,7 @@ TEST_F(MathTest, can_check_relative_position_intersect_line_and_plane) {
     RelativePosition expected = RelativePosition::INTERSECT;
 
     // Act
-    RelativePosition position = getRelativePosition(line, plane);
+    RelativePosition position = getPosition(line, plane);
 
     // Assert
     EXPECT_EQ(expected, position);

@@ -4,6 +4,8 @@
 
 #include "include/objects.h"
 
+using namespace Objects3d;
+
 class ObjectsTest : public ::testing::Test {
  protected:
     double epsilon = 0.0000001;
