@@ -125,5 +125,5 @@ TEST_F(MathTest, can_throw_on_intersection_of_embedded_line_and_plane) {
     Plane plane(A, B, C, D);
 
     // Act & Assert
-    EXPECT_ANY_THROW(auto point = intersect(line, plane));
+    EXPECT_ANY_THROW(intersect(line, plane));
 }
