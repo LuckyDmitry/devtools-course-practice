@@ -5,8 +5,6 @@
 
 #include "include/intersection.h"
 
-double globalEpsilon = 1e-9;
-
 namespace internal {
     double getNominator(const Objects3d::Line &line,
                         const Objects3d::Plane &plane) {
@@ -22,6 +20,8 @@ namespace internal {
 }  // namespace internal
 
 namespace math {
+    double globalEpsilon = 1e-9;
+
     Objects3d::RelativePosition getPosition(const Objects3d::Line &line,
                                             const Objects3d::Plane &plane) {
         auto denominator = internal::getDenominator(line, plane);
