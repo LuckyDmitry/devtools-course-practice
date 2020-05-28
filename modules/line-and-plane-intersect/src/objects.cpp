@@ -68,40 +68,40 @@ void Line::setP(double p) {
     m_p = p;
 }
 
-Plane::Plane(double A, double B, double C, double D)
-        : m_A(A), m_B(B), m_C(C), m_D(D) {
+Plane::Plane(double a, double b, double c, double d)
+        : m_a(a), m_b(b), m_c(c), m_d(d) {
     // Empty constructor
 }
 
 double Plane::getA() const {
-    return m_A;
+    return m_a;
 }
 
 double Plane::getB() const {
-    return m_B;
+    return m_b;
 }
 
 double Plane::getC() const {
-    return m_C;
+    return m_c;
 }
 
 double Plane::getD() const {
-    return m_D;
+    return m_d;
 }
 
 // Setters
-void Plane::setA(double A) {
-    m_A = A;
+void Plane::setA(double a) {
+    m_a = a;
 }
 
-void Plane::setB(double B) {
-    m_B = B;
+void Plane::setB(double b) {
+    m_b = b;
 }
 
-void Plane::setC(double C) {
-    m_C = C;
+void Plane::setC(double c) {
+    m_c = c;
 }
 
-void Plane::setD(double D) {
-    m_D = D;
+void Plane::setD(double d) {
+    m_d = d;
 }

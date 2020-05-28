@@ -79,7 +79,7 @@ class Plane {
  public:
     Plane() = default;
 
-    explicit Plane(double A, double B, double C, double D);
+    explicit Plane(double a, double b, double c, double d);
 
     Plane(const Plane &other) = default;
 
@@ -97,19 +97,19 @@ class Plane {
     double getD() const;
 
     // Setters
-    void setA(double A);
+    void setA(double a);
 
-    void setB(double B);
+    void setB(double b);
 
-    void setC(double C);
+    void setC(double c);
 
-    void setD(double D);
+    void setD(double d);
 
  private:
-    double m_A;
-    double m_B;
-    double m_C;
-    double m_D;
+    double m_a;
+    double m_b;
+    double m_c;
+    double m_d;
 };
 
 #endif  // MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_OBJECTS_H_

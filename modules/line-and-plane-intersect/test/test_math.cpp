@@ -18,13 +18,13 @@ TEST_F(MathTest, can_intersect_line_and_plane) {
     double m = 1.;
     double n = 3.;
     double p = 2.;
-    double A = 7.;
-    double B = -5.;
-    double C = 2.;
-    double D = 19.;
+    double a = 7.;
+    double b = -5.;
+    double c = 2.;
+    double d = 19.;
 
     Line line(x, y, z, m, n, p);
-    Plane plane(A, B, C, D);
+    Plane plane(a, b, c, d);
     Point expected(37. / 2., 89. / 2., 37.);
 
     // Act
@@ -44,13 +44,13 @@ TEST_F(MathTest, can_check_relative_position_parallel_line_and_plane) {
     double m = 1.;
     double n = -5.;
     double p = 4.;
-    double A = 6.;
-    double B = 2.;
-    double C = 1.;
-    double D = 7.;
+    double a = 6.;
+    double b = 2.;
+    double c = 1.;
+    double d = 7.;
 
     Line line(x, y, z, m, n, p);
-    Plane plane(A, B, C, D);
+    Plane plane(a, b, c, d);
     RelativePosition expected = RelativePosition::PARALLEL;
 
     // Act
@@ -68,13 +68,13 @@ TEST_F(MathTest, can_check_relative_position_embedded_line_and_plane) {
     double m = 2.;
     double n = -5.;
     double p = -1.;
-    double A = 2.;
-    double B = 1.;
-    double C = -1.;
-    double D = 11.;
+    double a = 2.;
+    double b = 1.;
+    double c = -1.;
+    double d = 11.;
 
     Line line(x, y, z, m, n, p);
-    Plane plane(A, B, C, D);
+    Plane plane(a, b, c, d);
     RelativePosition expected = RelativePosition::EMBEDDED;
 
     // Act
@@ -92,13 +92,13 @@ TEST_F(MathTest, can_check_relative_position_intersect_line_and_plane) {
     double m = 1.;
     double n = 3.;
     double p = 2.;
-    double A = 7.;
-    double B = -5.;
-    double C = 2.;
-    double D = 19.;
+    double a = 7.;
+    double b = -5.;
+    double c = 2.;
+    double d = 19.;
 
     Line line(x, y, z, m, n, p);
-    Plane plane(A, B, C, D);
+    Plane plane(a, b, c, d);
     RelativePosition expected = RelativePosition::INTERSECT;
 
     // Act
@@ -116,13 +116,13 @@ TEST_F(MathTest, can_throw_on_intersection_of_embedded_line_and_plane) {
     double m = 2.;
     double n = -5.;
     double p = -1.;
-    double A = 2.;
-    double B = 1.;
-    double C = -1.;
-    double D = 11.;
+    double a = 2.;
+    double b = 1.;
+    double c = -1.;
+    double d = 11.;
 
     Line line(x, y, z, m, n, p);
-    Plane plane(A, B, C, D);
+    Plane plane(a, b, c, d);
 
     // Act & Assert
     EXPECT_ANY_THROW(intersect(line, plane));

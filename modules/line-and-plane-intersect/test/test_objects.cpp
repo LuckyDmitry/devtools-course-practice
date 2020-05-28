@@ -144,28 +144,28 @@ TEST_F(ObjectsTest, can_copy_rvalue_line) {
 
 TEST_F(ObjectsTest, can_create_plane) {
     // Arrange
-    double A = 0.;
-    double B = 1.2;
-    double C = 2.3;
-    double D = 1.1;
+    double a = 0.;
+    double b = 1.2;
+    double c = 2.3;
+    double d = 1.1;
 
     // Act
-    Plane plane(A, B, C, D);
+    Plane plane(a, b, c, d);
 
     // Assert
-    EXPECT_NEAR(A, plane.getA(), ObjectsTest::epsilon);
-    EXPECT_NEAR(B, plane.getB(), ObjectsTest::epsilon);
-    EXPECT_NEAR(C, plane.getC(), ObjectsTest::epsilon);
-    EXPECT_NEAR(D, plane.getD(), ObjectsTest::epsilon);
+    EXPECT_NEAR(a, plane.getA(), ObjectsTest::epsilon);
+    EXPECT_NEAR(b, plane.getB(), ObjectsTest::epsilon);
+    EXPECT_NEAR(c, plane.getC(), ObjectsTest::epsilon);
+    EXPECT_NEAR(d, plane.getD(), ObjectsTest::epsilon);
 }
 
 TEST_F(ObjectsTest, can_copy_plane) {
     // Arrange
-    double A = 0.;
-    double B = 1.2;
-    double C = 2.3;
-    double D = 1.1;
-    Plane expected(A, B, C, D);
+    double a = 0.;
+    double b = 1.2;
+    double c = 2.3;
+    double d = 1.1;
+    Plane expected(a, b, c, d);
 
     // Act
     Plane plane(expected);
@@ -179,14 +179,14 @@ TEST_F(ObjectsTest, can_copy_plane) {
 
 TEST_F(ObjectsTest, can_copy_rvalue_plane) {
     // Arrange
-    double A = 0.;
-    double B = 1.2;
-    double C = 2.3;
-    double D = 1.1;
-    Plane expected(A, B, C, D);
+    double a = 0.;
+    double b = 1.2;
+    double c = 2.3;
+    double d = 1.1;
+    Plane expected(a, b, c, d);
 
     // Act
-    Plane plane(Plane(A, B, C, D));
+    Plane plane(Plane(a, b, c, d));
 
     // Assert
     EXPECT_NEAR(expected.getA(), plane.getA(), ObjectsTest::epsilon);
@@ -224,21 +224,21 @@ TEST_F(ObjectsTest, can_use_setter_line) {
 
 TEST_F(ObjectsTest, can_use_settrs_plane) {
     // Arrange
-    double A = 0.;
-    double B = 1.2;
-    double C = 2.3;
-    double D = 1.1;
+    double a = 0.;
+    double b = 1.2;
+    double c = 2.3;
+    double d = 1.1;
     Plane plane;
 
     // Act
-    plane.setA(A);
-    plane.setB(B);
-    plane.setC(C);
-    plane.setD(D);
+    plane.setA(a);
+    plane.setB(b);
+    plane.setC(c);
+    plane.setD(d);
 
     // Assert
-    EXPECT_NEAR(A, plane.getA(), ObjectsTest::epsilon);
-    EXPECT_NEAR(B, plane.getB(), ObjectsTest::epsilon);
-    EXPECT_NEAR(C, plane.getC(), ObjectsTest::epsilon);
-    EXPECT_NEAR(D, plane.getD(), ObjectsTest::epsilon);
+    EXPECT_NEAR(a, plane.getA(), ObjectsTest::epsilon);
+    EXPECT_NEAR(b, plane.getB(), ObjectsTest::epsilon);
+    EXPECT_NEAR(c, plane.getC(), ObjectsTest::epsilon);
+    EXPECT_NEAR(d, plane.getD(), ObjectsTest::epsilon);
 }
