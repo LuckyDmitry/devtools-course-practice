@@ -3,8 +3,6 @@
 #include "include/search_binary.h"
 #include "include/search_binary_application.h"
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <string>
 #include <sstream>
 
