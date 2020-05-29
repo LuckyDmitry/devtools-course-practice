@@ -4,8 +4,6 @@
 
 #include "include/objects.h"
 
-using namespace Objects3d;
-
 class ObjectsTest : public ::testing::Test {
  protected:
     double epsilon = 0.0000001;
@@ -18,7 +16,7 @@ TEST_F(ObjectsTest, can_crate_point) {
     double z = 2.3;
 
     // Act
-    Point point(x, y, z);
+    Objects3d::Point point(x, y, z);
 
     // Assert
     EXPECT_NEAR(x, point.x, ObjectsTest::epsilon);
@@ -28,10 +26,10 @@ TEST_F(ObjectsTest, can_crate_point) {
 
 TEST_F(ObjectsTest, can_copy_point) {
     // Arrange
-    Point expected(0., 1., 2.);
+    Objects3d::Point expected(0., 1., 2.);
 
     // Act
-    Point point(expected);
+    Objects3d::Point point(expected);
 
     // Assert
     EXPECT_NEAR(expected.x, point.x, ObjectsTest::epsilon);
@@ -46,7 +44,7 @@ TEST_F(ObjectsTest, can_copy_rvalue_point) {
     double z = 2.3;
 
     // Act
-    Point point(Point(x, y, z));
+    Objects3d::Point point(Objects3d::Point(x, y, z));
 
     // Assert
     EXPECT_NEAR(x, point.x, ObjectsTest::epsilon);
@@ -64,7 +62,7 @@ TEST_F(ObjectsTest, can_crate_line_by_point_and_vector) {
     double p = 1.8;
 
     // Act
-    Line line(x, y, z, m, n, p);
+    Objects3d::Line line(x, y, z, m, n, p);
 
     // Assert
     EXPECT_NEAR(x, line.getX(), ObjectsTest::epsilon);
@@ -86,10 +84,11 @@ TEST_F(ObjectsTest, can_create_line_by_two_points) {
     double m  = 1.1;
     double n  = 1.4;
     double p  = 0.6;
-    Line expected(x, y, z, m, n, p);
+    Objects3d::Line expected(x, y, z, m, n, p);
 
     // Act
-    Line line(Point(x, y, z), Point(x1, y1, z1));
+    Objects3d::Line line(Objects3d::Point(x, y, z),
+                         Objects3d::Point(x1, y1, z1));
 
     // Assert
     EXPECT_NEAR(expected.getX(), line.getX(), ObjectsTest::epsilon);
@@ -108,10 +107,10 @@ TEST_F(ObjectsTest, can_copy_line) {
     double m = 1.1;
     double n = 1.4;
     double p = 1.8;
-    Line expected(x, y, z, m, n, p);
+    Objects3d::Line expected(x, y, z, m, n, p);
 
     // Act
-    Line line(expected);
+    Objects3d::Line line(expected);
 
     // Assert
     EXPECT_NEAR(expected.getX(), line.getX(), ObjectsTest::epsilon);
@@ -132,7 +131,7 @@ TEST_F(ObjectsTest, can_copy_rvalue_line) {
     double p = 1.8;
 
     // Act
-    Line line(Line(x, y, z, m, n, p));
+    Objects3d::Line line(Objects3d::Line(x, y, z, m, n, p));
 
     // Assert
     EXPECT_NEAR(x, line.getX(), ObjectsTest::epsilon);
@@ -152,7 +151,7 @@ TEST_F(ObjectsTest, can_create_plane) {
     double d = 1.1;
 
     // Act
-    Plane plane(a, b, c, d);
+    Objects3d::Plane plane(a, b, c, d);
 
     // Assert
     EXPECT_NEAR(a, plane.getA(), ObjectsTest::epsilon);
@@ -167,10 +166,10 @@ TEST_F(ObjectsTest, can_copy_plane) {
     double b = 1.2;
     double c = 2.3;
     double d = 1.1;
-    Plane expected(a, b, c, d);
+    Objects3d::Plane expected(a, b, c, d);
 
     // Act
-    Plane plane(expected);
+    Objects3d::Plane plane(expected);
 
     // Assert
     EXPECT_NEAR(expected.getA(), plane.getA(), ObjectsTest::epsilon);
@@ -185,10 +184,10 @@ TEST_F(ObjectsTest, can_copy_rvalue_plane) {
     double b = 1.2;
     double c = 2.3;
     double d = 1.1;
-    Plane expected(a, b, c, d);
+    Objects3d::Plane expected(a, b, c, d);
 
     // Act
-    Plane plane(Plane(a, b, c, d));
+    Objects3d::Plane plane(Objects3d::Plane(a, b, c, d));
 
     // Assert
     EXPECT_NEAR(expected.getA(), plane.getA(), ObjectsTest::epsilon);
@@ -205,7 +204,7 @@ TEST_F(ObjectsTest, can_use_setter_line) {
     double m = 1.1;
     double n = 1.4;
     double p = 1.8;
-    Line line;
+    Objects3d::Line line;
 
     // Act
     line.setX(x);
@@ -230,7 +229,7 @@ TEST_F(ObjectsTest, can_use_settrs_plane) {
     double b = 1.2;
     double c = 2.3;
     double d = 1.1;
-    Plane plane;
+    Objects3d::Plane plane;
 
     // Act
     plane.setA(a);
