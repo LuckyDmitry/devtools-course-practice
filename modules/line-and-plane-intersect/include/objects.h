@@ -11,7 +11,7 @@ namespace Objects3d {
     };
 
     struct Point {
-    public:
+     public:
         Point() = default;
 
         Point(const Point &other) = default;
@@ -28,10 +28,11 @@ namespace Objects3d {
     };
 
     class Line {
-    public:
+     public:
         Line() = default;
 
-        explicit Line(double x, double y, double z, double m, double n, double p);
+        explicit Line(double x, double y, double z, 
+                      double m, double n, double p);
 
         explicit Line(Point m0, Point m1);
 
@@ -67,7 +68,7 @@ namespace Objects3d {
 
         void setP(double p);
 
-    private:
+     private:
         double m_x;
         double m_y;
         double m_z;
@@ -77,7 +78,7 @@ namespace Objects3d {
     };
 
     class Plane {
-    public:
+     public:
         Plane() = default;
 
         explicit Plane(double a, double b, double c, double d);
@@ -106,7 +107,7 @@ namespace Objects3d {
 
         void setD(double d);
 
-    private:
+     private:
         double m_a;
         double m_b;
         double m_c;
