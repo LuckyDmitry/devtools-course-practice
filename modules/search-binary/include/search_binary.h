@@ -1,4 +1,4 @@
-// Copyright 2020 Tihomirova Mariya
+// Copyright 2020 Tihomirova Mariya & Vlasov Andrey
 
 #ifndef MODULES_SEARCH_BINARY_INCLUDE_SEARCH_BINARY_H_
 #define MODULES_SEARCH_BINARY_INCLUDE_SEARCH_BINARY_H_
