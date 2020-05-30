@@ -15,9 +15,9 @@ namespace polygon_engine {
     public:
         Polygon() = default;
 
-        Polygon(const Point& other) = default;
+        Polygon(const Polygon& other) = default;
 
-        Polygon(Point && other) = default;
+        Polygon(Polygon&& other) = default;
 
         explicit Polygon(std::vector<Point>);
 
