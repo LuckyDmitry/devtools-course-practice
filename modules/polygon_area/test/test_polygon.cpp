@@ -30,7 +30,6 @@ TEST(polygon, throw_in_isConnectedness_when_tops_count_less_3) {
         auto p = Polygon(points);
         ASSERT_ANY_THROW(p.isConnectedness());
     }
-    
 }
 
 TEST(polygon, throw_in_getPerimeter_when_tops_count_less_3) {
@@ -43,7 +42,6 @@ TEST(polygon, throw_in_getPerimeter_when_tops_count_less_3) {
         auto p = Polygon(points);
         ASSERT_ANY_THROW(p.getPerimeter());
     }
-
 }
 
 TEST(polygon, throw_in_getArea_when_tops_count_less_3) {
@@ -56,7 +54,6 @@ TEST(polygon, throw_in_getArea_when_tops_count_less_3) {
         auto p = Polygon(points);
         ASSERT_ANY_THROW(p.getArea());
     }
-
 }
 
 TEST(polygon, check_connectedness_when_is_intersect) {
