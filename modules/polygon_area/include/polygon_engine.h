@@ -5,6 +5,7 @@
 #include <vector>
 
 namespace polygon_engine {
+
 struct Point {
     double x;
     double y;
