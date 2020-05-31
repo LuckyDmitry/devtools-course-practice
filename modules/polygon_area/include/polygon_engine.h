@@ -19,7 +19,7 @@ namespace polygon_engine {
 
         Polygon(Polygon&& other) = default;
 
-        explicit Polygon(std::vector<Point>);
+        explicit Polygon(std::vector<Point> points);
 
         bool isConnectedness();
 
