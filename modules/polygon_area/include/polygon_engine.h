@@ -5,30 +5,31 @@
 #include <vector>
 
 namespace polygon_engine {
-    struct Point {
-        double x;
-        double y;
-    };
 
-    class Polygon {
-     public:
-        Polygon() = default;
+struct Point {
+    double x;
+    double y;
+};
 
-        Polygon(const Polygon& other) = default;
+class Polygon {
+ public:
+    Polygon() = default;
 
-        Polygon(Polygon&& other) = default;
+    Polygon(const Polygon& other) = default;
 
-        explicit Polygon(std::vector<Point> points);
+    Polygon(Polygon&& other) = default;
 
-        bool isConnectedness();
+    explicit Polygon(std::vector<Point> points);
 
-        double getPerimeter();
+    bool isConnectedness();
 
-        double getArea();
+    double getPerimeter();
 
-     private:
-        std::vector<Point> tops;
-    };
+    double getArea();
+
+ private:
+    std::vector<Point> tops;
+};
 
 }  // namespace polygon_engine
 
