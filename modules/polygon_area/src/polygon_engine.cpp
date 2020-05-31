@@ -27,10 +27,10 @@ static inline bool isIntersect(polygon_engine::Point a, polygon_engine::Point b,
 
 bool polygon_engine::Polygon::isConnectedness()
 {
-    const auto size = tops.size();
+    const int size = tops.size();
     if (size < 4) throw ("It's not a polygon");
-    for (auto i = 0; i < size - 2; i++) {
-        for (auto j = i + 1; j < size - 1; j++) {
+    for (int i = 0; i < size - 2; i++) {
+        for (int j = i + 1; j < size - 1; j++) {
             std::vector<Point> cp = {tops[i], tops[i+1], tops[j], tops[j + 1]};
             if (isIntersect(cp[0], cp[1], cp[2], cp[3])) return false;
         }
@@ -43,7 +43,7 @@ double polygon_engine::Polygon::getPerimeter()
 {
     if (!isConnectedness()) throw ("Not connectedness");
     double perimeter = 0.;
-    for (auto i = 0; i < tops.size() - 1; i++) {
+    for (int i = 0; i < tops.size() - 1; i++) {
         perimeter += sqrt((tops[i].x - tops[i + 1].x) * (tops[i].x - tops[i + 1].x)
         + (tops[i].y - tops[i + 1].y) * (tops[i].y - tops[i + 1].y));
     }
@@ -55,8 +55,8 @@ double polygon_engine::Polygon::getArea()
     if (!isConnectedness()) throw ("Not connectedness");
     double area = 0.;
     if (tops.size() > 2) {
-        auto size = tops.size();
-        for (auto i = 0; i < size - 1; i++) {
+        int size = tops.size();
+        for (int i = 0; i < size - 1; i++) {
             area += tops[i].x * tops[i + 1].y;
             area -= tops[i + 1].x * tops[i].y;
         }
