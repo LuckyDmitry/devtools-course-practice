@@ -43,7 +43,8 @@ double polygon_engine::Polygon::getPerimeter()
 {
     if (!isConnectedness()) throw ("Not connectedness");
     double perimeter = 0.;
-    for (int i = 0; i < tops.size() - 1; i++) {
+    const int size = tops.size();
+    for (int i = 0; i < size - 1; i++) {
         perimeter += sqrt((tops[i].x - tops[i + 1].x) * (tops[i].x - tops[i + 1].x)
         + (tops[i].y - tops[i + 1].y) * (tops[i].y - tops[i + 1].y));
     }
