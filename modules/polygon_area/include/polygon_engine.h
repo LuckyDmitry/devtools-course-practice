@@ -1,18 +1,17 @@
 // Copyright 2020 Dobrohotov Vitaly
 
-#ifndef MODULES_POLYGON_ENGINE_H_
-#define MODULES_POLYGON_ENGINE_H_
+#ifndef MODULES_POLYGON_AREA_INCLUDE_POLYGON_ENGINE_H_
+#define MODULES_POLYGON_AREA_INCLUDE_POLYGON_ENGINE_H_
 #include <vector>
 
 namespace polygon_engine {
-
     struct Point {
         double x;
         double y;
     };
 
     class Polygon {
-    public:
+     public:
         Polygon() = default;
 
         Polygon(const Polygon& other) = default;
@@ -27,11 +26,11 @@ namespace polygon_engine {
 
         double getArea();
 
-    private:
+     private:
         std::vector<Point> tops;
     };
 
-} // namespace polygon_engine
+}  // namespace polygon_engine
 
 
-#endif  // MODULES_POLYGON_ENGINE_H_
+#endif  // MODULES_POLYGON_AREA_INCLUDE_POLYGON_ENGINE_H_
