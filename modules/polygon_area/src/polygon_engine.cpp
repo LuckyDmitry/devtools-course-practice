@@ -1,13 +1,17 @@
 // Copyright 2020 Loogin Mikhail
 #include "include/polygon_engine.h"
 #include <algorithm>
+#include <vector>
 
 polygon_engine::Polygon::Polygon(std::vector<Point> points) {
     tops = points;
     if (!points.empty()) tops.push_back(points[0]);
 }
 
-static inline int triangleArea(polygon_engine::Point a, polygon_engine::Point b, polygon_engine::Point c) {
+static inline int triangleArea(
+    polygon_engine::Point a,
+    polygon_engine::Point b,
+    polygon_engine::Point c) {
     return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
 }
 
@@ -17,16 +21,18 @@ static inline bool intersect(int a, int b, int c, int d) {
     return std::max(a, c) < std::min(b, d);
 }
 
-static inline bool isIntersect(polygon_engine::Point a, polygon_engine::Point b, polygon_engine::Point c, polygon_engine::Point d)
-{
+static inline bool isIntersect(
+    polygon_engine::Point a,
+    polygon_engine::Point b,
+    polygon_engine::Point c,
+    polygon_engine::Point d) {
     return intersect(a.x, b.x, c.x, d.x)
         && intersect(a.y, b.y, c.y, d.y)
         && triangleArea(a, b, c) * triangleArea(a, b, d) <= 0
         && triangleArea(c, d, a) * triangleArea(c, d, b) <= 0;
 }
 
-bool polygon_engine::Polygon::isConnectedness()
-{
+bool polygon_engine::Polygon::isConnectedness() {
     const int size = tops.size();
     if (size < 4) throw ("It's not a polygon");
     for (int i = 0; i < size - 2; i++) {
@@ -39,8 +45,7 @@ bool polygon_engine::Polygon::isConnectedness()
     return true;
 }
 
-double polygon_engine::Polygon::getPerimeter()
-{
+double polygon_engine::Polygon::getPerimeter() {
     if (!isConnectedness()) throw ("Not connectedness");
     double perimeter = 0.;
     const int size = tops.size();
@@ -51,8 +56,7 @@ double polygon_engine::Polygon::getPerimeter()
     return perimeter;
 }
 
-double polygon_engine::Polygon::getArea()
-{
+double polygon_engine::Polygon::getArea() {
     if (!isConnectedness()) throw ("Not connectedness");
     double area = 0.;
     if (tops.size() > 2) {
