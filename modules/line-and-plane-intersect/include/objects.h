@@ -1,4 +1,4 @@
-// Copyright 2020 Lebedev Alexander
+// Copyright 2020 Lebedev Alexander & Loogin
 
 #ifndef MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_OBJECTS_H_
 #define MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_OBJECTS_H_
