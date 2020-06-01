@@ -1,4 +1,4 @@
-// Copyright 2020 Lebedev Alexander
+// Copyright 2020 Lebedev Alexander & Loogin
 
 #ifndef MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_OBJECTS_H_
 #define MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_OBJECTS_H_
@@ -21,6 +21,11 @@ struct Point {
     explicit Point(double n_x, double n_y, double n_z);
 
     ~Point() = default;
+
+    Point operator=(Point& point) {
+        *this = point;
+        return point;
+    }
 
     double x;
     double y;
