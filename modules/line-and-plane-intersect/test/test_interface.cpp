@@ -64,7 +64,8 @@ TEST_F(intersectUI, Is_Checking_Number_Of_Arguments) {
 
 TEST_F(intersectUI, Can_Detect_Wrong_Number_Format) {
     // Arrange
-    vector<string> args = {"1", "pi", "2", "4", "+", "1", "pi", "2", "4", "+" };
+    vector<string> args = {"1", "pi", "2", "4", "+", "1",
+        "pi", "2", "4", "+" };
 
     // Act
     Act(args);
@@ -75,7 +76,8 @@ TEST_F(intersectUI, Can_Detect_Wrong_Number_Format) {
 
 TEST_F(intersectUI, Can_Add_Params) {
     // Arrange
-    vector<string> args = {"2.", "-5.", "4.", "1.", "3.", "2.", "7.", "-5.", "2.", "19." };
+    vector<string> args = {"2.", "-5.", "4.", "1.", "3.", "2.",
+        "7.", "-5.", "2.", "19." };
 
     // Act
     Act(args);
@@ -86,7 +88,8 @@ TEST_F(intersectUI, Can_Add_Params) {
 
 TEST_F(intersectUI, Can_Check_Relative_Position_Parallel_Line_And_Plane) {
     // Arrange
-    vector<string> args = {"-2.", "2.", "3.", "1.", "-5.", "4.", "6.", "2.", "1.", "7." };
+    vector<string> args = {"-2.", "2.", "3.", "1.", "-5.", "4.",
+        "6.", "2.", "1.", "7." };
 
     // Act
     Act(args);
@@ -97,7 +100,8 @@ TEST_F(intersectUI, Can_Check_Relative_Position_Parallel_Line_And_Plane) {
 
 TEST_F(intersectUI, Can_Check_Relative_Position_Embedded_Line_And_Plane) {
     // Arrange
-    vector<string> args = {"1.", "-5.", "8.", "2.", "-5.", "-1.", "2.", "1.", "-1.", "11." };
+    vector<string> args = {"1.", "-5.", "8.", "2.", "-5.", "-1.",
+        "2.", "1.", "-1.", "11." };
 
     // Act
     Act(args);
@@ -108,7 +112,8 @@ TEST_F(intersectUI, Can_Check_Relative_Position_Embedded_Line_And_Plane) {
 
 TEST_F(intersectUI, Can_Check_Relative_Position_Intersect_Line_And_Plane) {
     // Arrange
-    vector<string> args = { "2.", "-5.", "4.", "1.", "3.", "2.", "7.", "-5.", "2.", "19." };
+    vector<string> args = { "2.", "-5.", "4.", "1.", "3.", "2.",
+        "7.", "-5.", "2.", "19." };
 
     // Act
     Act(args);

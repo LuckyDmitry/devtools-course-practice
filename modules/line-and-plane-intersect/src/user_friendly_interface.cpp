@@ -1,8 +1,8 @@
 // Copyright 2020 Loogin Mikhail
 
+#include "../include/user_friendly_interface.h"
 #include "../include/objects.h"
 #include "../include/intersection.h"
-#include "../include/user_friendly_interface.h"
 
 #include <string>
 
@@ -66,12 +66,13 @@ string IntersectUI::operator()(int argc, const char** argv) {
         return str;
     }
 
-    auto line = Objects3d::Line(args.lx1, args.ly1, args.lz1, args.lx2, args.ly2, args.lz2);
+    auto line = Objects3d::Line(args.lx1, args.ly1, args.lz1,
+        args.lx2, args.ly2, args.lz2);
     auto plane = Objects3d::Plane(args.a, args.b, args.c, args.d);
 
     auto position = math::getPosition(line, plane);
     string result = "Line and plane ";
-    
+
     switch (position) {
         case RelativePosition::EMBEDDED: {result += "embedded"; break;}
         case RelativePosition::PARALLEL: {result += "parallel"; break;}
