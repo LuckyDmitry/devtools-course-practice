@@ -22,11 +22,6 @@ struct Point {
 
     ~Point() = default;
 
-    Point operator=(Point& point) {
-        *this = point;
-        return point;
-    }
-
     double x;
     double y;
     double z;

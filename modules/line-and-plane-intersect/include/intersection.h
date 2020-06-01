@@ -3,7 +3,7 @@
 #ifndef MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_INTERSECTION_H_
 #define MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_INTERSECTION_H_
 
-#include "objects.h"
+#include "include/objects.h"
 
 namespace math {
     Objects3d::RelativePosition getPosition(const Objects3d::Line &line,
