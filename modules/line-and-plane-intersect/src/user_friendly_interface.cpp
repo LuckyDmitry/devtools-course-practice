@@ -1,10 +1,9 @@
 // Copyright 2020 Loogin Mikhail
 
 #include "../include/user_friendly_interface.h"
+#include <string>
 #include "../include/objects.h"
 #include "../include/intersection.h"
-
-#include <string>
 
 using std::string;
 using Objects3d::RelativePosition;
