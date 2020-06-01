@@ -51,7 +51,7 @@ string IntersectUI::operator()(int argc, const char** argv) {
         args.c = std::stod(argv[9]);
         args.d    = std::stod(argv[10]);
     }
-    catch(const std::invalid_argument e) {
+    catch(std::invalid_argument& e) {
         return "Wrong number format!";
     }
 
