@@ -2,6 +2,7 @@
 
 #include "../include/user_friendly_interface.h"
 #include <string>
+#include <stdexcept>
 #include "../include/objects.h"
 #include "../include/intersection.h"
 
@@ -32,17 +33,6 @@ bool IntersectUI::validateNumberOfArguments(int argc, const char** argv) {
     return true;
 }
 
-double parseDouble(const char* arg) {
-    char* end;
-    double value = strtod(arg, &end);
-
-    if (end[0]) {
-        throw std::string("Wrong number format!");
-    }
-
-    return value;
-}
-
 string IntersectUI::operator()(int argc, const char** argv) {
     Arguments args;
 
@@ -50,19 +40,19 @@ string IntersectUI::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.lx1      = parseDouble(argv[1]);
-        args.ly1 = parseDouble(argv[2]);
-        args.lz1      = parseDouble(argv[3]);
-        args.lx2 = parseDouble(argv[4]);
-        args.ly2    = parseDouble(argv[5]);
-        args.lz2      = parseDouble(argv[6]);
-        args.a = parseDouble(argv[7]);
-        args.b      = parseDouble(argv[8]);
-        args.c = parseDouble(argv[9]);
-        args.d    = parseDouble(argv[10]);
+        args.lx1      = std::stod(argv[1]);
+        args.ly1 = std::stod(argv[2]);
+        args.lz1      = std::stod(argv[3]);
+        args.lx2 = std::stod(argv[4]);
+        args.ly2    = std::stod(argv[5]);
+        args.lz2      = std::stod(argv[6]);
+        args.a = std::stod(argv[7]);
+        args.b      = std::stod(argv[8]);
+        args.c = std::stod(argv[9]);
+        args.d    = std::stod(argv[10]);
     }
-    catch(string& str) {
-        return str;
+    catch(const std::invalid_argument e) {
+        return "Wrong number format!";
     }
 
     auto line = Objects3d::Line(args.lx1, args.ly1, args.lz1,

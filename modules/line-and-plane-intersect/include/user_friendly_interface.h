@@ -4,8 +4,6 @@
 #define MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_USER_FRIENDLY_INTERFACE_H_
 
 #include <string>
-#include <vector>
-#include <utility>
 
 class IntersectUI {
  public:
@@ -14,7 +12,7 @@ class IntersectUI {
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
-    typedef struct {
+    using Arguments = struct {
         double lx1;
         double ly1;
         double lz1;
@@ -25,7 +23,7 @@ class IntersectUI {
         double b;
         double c;
         double d;
-    } Arguments;
+    };
 };
 
 #endif  // MODULES_LINE_AND_PLANE_INTERSECT_INCLUDE_USER_FRIENDLY_INTERFACE_H_
