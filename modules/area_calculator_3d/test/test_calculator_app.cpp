@@ -98,7 +98,7 @@ TEST(Epremyan_Norik_Application, CreateFigurePointerCube) {
     std::vector<std::string> data3 = { "cube", "2" };
 // Act
 // Assert
-    EXPECT_EQ(test.CreateFigure(data3)->GetName(), "cube");
+    EXPECT_FALSE(test.CreateFigure(data3) == nullptr);
 }
 
 TEST(Epremyan_Norik_Application, CreateFigurePointerCone) {
@@ -107,7 +107,7 @@ TEST(Epremyan_Norik_Application, CreateFigurePointerCone) {
     std::vector<std::string> data4 = {"cone", "2", "2" };
 // Act
 // Assert
-    EXPECT_EQ(test.CreateFigure(data4)->GetName(), "cone");
+	EXPECT_FALSE(test.CreateFigure(data4) == nullptr);
 }
 
 TEST(Epremyan_Norik_Application, CreateFigurePointerCylinder) {
@@ -116,7 +116,7 @@ TEST(Epremyan_Norik_Application, CreateFigurePointerCylinder) {
     std::vector<std::string> data4 = { "cylinder", "2", "2" };
 // Act
 // Assert
-    EXPECT_EQ(test.CreateFigure(data4)->GetName(), "cylinder");
+	EXPECT_FALSE(test.CreateFigure(data4) == nullptr);
 }
 
 TEST(Epremyan_Norik_Application, CantCalculateArea) {
