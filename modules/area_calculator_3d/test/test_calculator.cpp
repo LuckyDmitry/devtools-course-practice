@@ -26,12 +26,12 @@ TEST(Epremyan_Norik_Cube, CanFactoryCreateObject) {
 TEST(Epremyan_Norik_Cube, CanGetValue) {
 // Arrange
     Factory* FactoryCube = new Factory();
-    std::vector<double> *value;
+    std::vector<double> value;
     figure* tmpCube = FactoryCube->create("cube");
 // Act
     value = tmpCube->GetValue();
 // Assert
-    EXPECT_DOUBLE_EQ((*value)[0], 1);
+    EXPECT_DOUBLE_EQ(value[0], 1);
 }
 
 TEST(Epremyan_Norik_Cube, CanSetValue) {
@@ -90,11 +90,11 @@ TEST(Epremyan_Norik_Cylinder, CanGetValue) {
 // Arrange
     Factory* FactoryCylinder = new Factory();
     figure* tmpCyl = FactoryCylinder->create("cylinder");
-    std::vector<double>* vals;
+    std::vector<double> vals;
     double vals_sum = 0;
 // Act
     vals = tmpCyl->GetValue();
-    vals_sum = (*vals)[0] + (*vals)[1];
+    vals_sum = vals[0] + vals[1];
 // Assert
     EXPECT_DOUBLE_EQ(vals_sum, 2);
 }
@@ -168,11 +168,11 @@ TEST(Epremyan_Norik_Cone, CanGetValue) {
 // Arrange
     Factory* FactoryCone = new Factory();
     figure* tmpCone = FactoryCone->create("cone");
-    std::vector<double>* vals;
+    std::vector<double> vals;
     double vals_sum = 0;
 // Act
     vals = tmpCone->GetValue();
-    vals_sum = (*vals)[0] + (*vals)[1];
+    vals_sum = vals[0] + vals[1];
 // Assert
     EXPECT_DOUBLE_EQ(vals_sum, 2);
 }
