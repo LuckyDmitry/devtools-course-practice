@@ -6,6 +6,12 @@
 
 namespace polygon_engine {
 
+enum class Operation {
+    CONNECTEDNESS,
+    PERIMETER,
+    AREA
+};
+
 struct Point {
     double x;
     double y;
