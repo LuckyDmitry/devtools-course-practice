@@ -29,6 +29,14 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
+    NAME ${prefix}_can_Check_Operation_Type
+    COMMAND ${APPLICATION} h 0. 1. 1. 1. 0. 0.
+)
+set_tests_properties (${prefix}_can_Check_Operation_Type PROPERTIES
+    PASS_REGULAR_EXPRESSION "Invalid operation type."
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}_can_Solve_Connectedness
     COMMAND ${APPLICATION} c 0. 0. 0. 1. 1. 1. 1. 0.
 )
