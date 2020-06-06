@@ -1,7 +1,8 @@
-// Copyright 2020 Loogin Mikhail
+// Copyright 2020 Loogin Mikhail & Lebedev Alexander
 #include "include/polygon_engine.h"
 #include <algorithm>
 #include <vector>
+#include <cmath>
 
 polygon_engine::Polygon::Polygon(std::vector<Point> points) {
     tops = points;
