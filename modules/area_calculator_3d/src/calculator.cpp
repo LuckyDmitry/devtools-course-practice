@@ -7,14 +7,10 @@
 
 // cone
 cone::cone() {
-    name = "cone";
     Radius = 1;
     Height = 1;
 }
-std::string cone::GetName() {
-    return this->name;
-}
-bool cone::SetValue(std::vector<double> _vals) {
+void cone::SetValue(std::vector<double> _vals) {
     if (_vals.size() < 2) throw "Empty vector";
     double _radius = _vals[0];
     double _height = _vals[1];
@@ -22,7 +18,6 @@ bool cone::SetValue(std::vector<double> _vals) {
     if (_height <= 0) throw "Height should be positive";
     this->Height = _height;
     this->Radius = _radius;
-    return true;
 }
 std::vector<double>* cone::GetValue() {
     std::vector<double> *vals = new std::vector<double>;
@@ -40,18 +35,13 @@ double cone::area() {
 
 // cube
 cube::cube() {
-    name = "cube";
     edge = 1;
 }
-std::string cube::GetName() {
-    return this->name;
-}
-bool cube::SetValue(std::vector<double> _vals) {
+void cube::SetValue(std::vector<double> _vals) {
     if (_vals.size() == 0) throw "Empty vector";
     double _edge = _vals[0];
     if (_edge <= 0) throw "Edge should be positive";
     this->edge = _edge;
-    return true;
 }
 std::vector<double>* cube::GetValue() {
     std::vector<double> *vals = new std::vector<double>;
@@ -66,14 +56,10 @@ double cube::area() {
 // Cylinder
 
 cylinder::cylinder() {
-    this->name = "cylinder";
     this->Height = 1;
     this->Radius = 1;
 }
-std::string cylinder::GetName() {
-    return this->name;
-}
-bool cylinder::SetValue(std::vector<double> _vals) {
+void cylinder::SetValue(std::vector<double> _vals) {
     if (_vals.size() < 2) throw "Empty vector";
     double _radius = _vals[0];
     double _height = _vals[1];
@@ -81,7 +67,6 @@ bool cylinder::SetValue(std::vector<double> _vals) {
     if (_height <= 0) throw "Height should be positive";
     this->Height = _height;
     this->Radius = _radius;
-    return true;
 }
 std::vector<double>* cylinder::GetValue() {
     std::vector<double> *vals = new std::vector<double>;
@@ -98,14 +83,18 @@ double cylinder::area() {
 }
 
 // Factories
-figure* ConeFactory::createFigure() {
-    return new cone;
-}
-
-figure* CubeFactory::createFigure() {
-    return new cube;
-}
-
-figure* CylinderFactory::createFigure() {
-    return new cylinder;
-}
+figure* Factory::create(std::string name) {
+    figure* result = nullptr;
+    if (name == "cone") {
+        result = new cone();
+    } else {
+        if (name == "cylinder") {
+            result = new cylinder();
+        } else {
+            if (name == "cube") {
+                result = new cube();
+            }
+        }
+    }
+    return result;
+};

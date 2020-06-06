@@ -6,20 +6,16 @@
 
 // Figures types:
 class figure {
- protected:
-    std::string name;
  public:
     virtual double area() = 0;
-    virtual std::string GetName() = 0;
-    virtual bool SetValue(std::vector<double> _vals) = 0;
+    virtual void SetValue(std::vector<double> _vals) = 0;
     virtual std::vector<double>* GetValue() = 0;
 };
 
 class cone : public figure {
  public:
     cone();
-    std::string GetName();
-    bool SetValue(std::vector<double> _vals);
+    void SetValue(std::vector<double> _vals);
     std::vector<double>* GetValue();
     double area();
  private:
@@ -30,8 +26,7 @@ class cone : public figure {
 class cube : public figure {
  public:
     cube();
-    std::string GetName();
-    bool SetValue(std::vector<double> _vals);
+    void SetValue(std::vector<double> _vals);
     std::vector<double>* GetValue();
     double area();
  private:
@@ -41,8 +36,7 @@ class cube : public figure {
 class cylinder : public figure {
  public:
     cylinder();
-    std::string GetName();
-    bool SetValue(std::vector<double> _vals);
+    void SetValue(std::vector<double> _vals);
     std::vector<double>* GetValue();
     double area();
  private:
@@ -51,24 +45,8 @@ class cylinder : public figure {
 };
 
 // Factories
-class figureFactory {
+class Factory {
  public:
-    virtual figure* createFigure() = 0;
-    virtual ~figureFactory() {}
-};
-
-class ConeFactory : public figureFactory {
- public:
-    figure* createFigure();
-};
-
-class CubeFactory : public figureFactory {
- public:
-    figure* createFigure();
-};
-
-class CylinderFactory : public figureFactory {
- public:
-    figure* createFigure();
+    static figure* Factory::create(std::string name);
 };
 #endif  // MODULES_AREA_CALCULATOR_3D_INCLUDE_CALCULATOR_H_

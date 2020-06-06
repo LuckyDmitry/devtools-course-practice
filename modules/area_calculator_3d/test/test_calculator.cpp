@@ -7,134 +7,93 @@
 #include "include/calculator.h"
 
 // -----------------------------TESTS FOR CUBE
-TEST(Epremyan_Norik_Cube, CanCreateFactoryObject) {
-// Arrange
-// Act
-// Assert
-    ASSERT_NO_THROW(CubeFactory tmp);
-}
-
-TEST(Epremyan_Norik_Cube, CanDeleteFactoryObject) {
-// Arrange
-    CubeFactory* tmpCube = new CubeFactory;
-// Act
-// Assert
-    ASSERT_NO_THROW(delete tmpCube);
-}
-
 TEST(Epremyan_Norik_Cube, CanCreateObject) {
 // Arrange
-    CubeFactory* tmpCube = new CubeFactory;
 // Act
 // Assert
-    ASSERT_NO_THROW(tmpCube->createFigure());
+    ASSERT_NO_THROW(cube tmp);
 }
 
-TEST(Epremyan_Norik_Cube, CanGetName) {
+TEST(Epremyan_Norik_Cube, CanFactoryCreateObject) {
 // Arrange
-    CubeFactory* tmpCube = new CubeFactory;
-    figure* _Cube;
+    Factory* FactoryCube = new Factory();
+    figure* tmpCube = FactoryCube->create("cube");
 // Act
-    _Cube = tmpCube->createFigure();
 // Assert
-    EXPECT_EQ(_Cube->GetName(), "cube");
+    EXPECT_FALSE(tmpCube == nullptr);
 }
 
 TEST(Epremyan_Norik_Cube, CanGetValue) {
 // Arrange
-    CubeFactory* tmpCube = new CubeFactory;
-    figure* _Cube;
+    Factory* FactoryCube = new Factory();
     std::vector<double> *value;
-    double _edge;
+    figure* tmpCube = FactoryCube->create("cube");
 // Act
-    _Cube = tmpCube->createFigure();
-    value = _Cube->GetValue();
-    _edge = (*value)[0];
+    value = tmpCube->GetValue();
 // Assert
-    EXPECT_DOUBLE_EQ(_edge, 1);
+    EXPECT_DOUBLE_EQ((*value)[0], 1);
 }
 
 TEST(Epremyan_Norik_Cube, CanSetValue) {
 // Arrange
-    CubeFactory* tmpCube = new CubeFactory;
-    figure* _Cube;
+    Factory* FactoryCube = new Factory();
+    figure* tmpCube = FactoryCube->create("cube");
     std::vector<double> value;
 // Act
-    _Cube = tmpCube->createFigure();
     value.push_back(2);
 // Assert
-    EXPECT_TRUE(_Cube->SetValue(value));
+    ASSERT_NO_THROW(tmpCube->SetValue(value));
 }
 
 TEST(Epremyan_Norik_Cube, CantSetNegativeValue) {
 // Arrange
-    CubeFactory* tmpCube = new CubeFactory;
-    figure* _Cube;
+    Factory* FactoryCube = new Factory();
+    figure* tmpCube = FactoryCube->create("cube");
     std::vector<double> value;
 // Act
-    _Cube = tmpCube->createFigure();
     value.push_back(-2);
 // Assert
-    EXPECT_ANY_THROW(_Cube->SetValue(value));
+    EXPECT_ANY_THROW(tmpCube->SetValue(value));
 }
 
 TEST(Epremyan_Norik_Cube, CanCalculateArea) {
 // Arrange
-    CubeFactory* tmpCube = new CubeFactory;
-    figure* _Cube;
+    Factory* FactoryCube = new Factory();
+    figure* tmpCube = FactoryCube->create("cube");
     std::vector<double> value;
 // Act
-    _Cube = tmpCube->createFigure();
     value.push_back(2);
-    _Cube->SetValue(value);
+    tmpCube->SetValue(value);
 // Assert
-    EXPECT_DOUBLE_EQ(_Cube->area(), 6*2*2);
+    EXPECT_DOUBLE_EQ(tmpCube->area(), 6*2*2);
 }
 
 
 // -----------------------------TESTS FOR CYLINDER
-TEST(Epremyan_Norik_Cylinder, CanCreateFactoryObject) {
-// Arrange
-// Act
-// Assert
-    ASSERT_NO_THROW(CylinderFactory tmp);
-}
-
-TEST(Epremyan_Norik_Cylinder, CanDeleteFactoryObject) {
-// Arrange
-    CylinderFactory* templ = new CylinderFactory;
-// Act
-// Assert
-    ASSERT_NO_THROW(delete templ);
-}
-
 TEST(Epremyan_Norik_Cylinder, CanCreateObject) {
 // Arrange
-    CylinderFactory* templ = new CylinderFactory;
 // Act
 // Assert
-    ASSERT_NO_THROW(templ->createFigure(););
+    ASSERT_NO_THROW(cylinder tmp);
 }
 
-TEST(Epremyan_Norik_Cylinder, CanGetName) {
+TEST(Epremyan_Norik_Cylinder, CanFactoryCreateObject) {
 // Arrange
-    CylinderFactory* templ = new CylinderFactory;
-    figure* _Cylndr;
+    Factory* FactoryCylinder = new Factory();
+    figure* tmpCyl = FactoryCylinder->create("cylinder");
 // Act
-    _Cylndr = templ->createFigure();
 // Assert
-    EXPECT_EQ(_Cylndr->GetName(), "cylinder");
+    EXPECT_FALSE(tmpCyl == nullptr);
 }
 
 TEST(Epremyan_Norik_Cylinder, CanGetValue) {
 // Arrange
-    CylinderFactory* templ = new CylinderFactory;
-    figure* _Cylndr;
+    Factory* FactoryCylinder = new Factory();
+    figure* tmpCyl = FactoryCylinder->create("cylinder");
     std::vector<double>* vals;
     double vals_sum = 0;
 // Act
-    _Cylndr = templ->createFigure();
-    vals = _Cylndr->GetValue();
+    vals = tmpCyl->GetValue();
     vals_sum = (*vals)[0] + (*vals)[1];
 // Assert
     EXPECT_DOUBLE_EQ(vals_sum, 2);
@@ -142,89 +101,77 @@ TEST(Epremyan_Norik_Cylinder, CanGetValue) {
 
 TEST(Epremyan_Norik_Cylinder, CanSetValue) {
 // Arrange
-    CylinderFactory* templ = new CylinderFactory;
-    figure* _Cylndr;
+    Factory* FactoryCylinder = new Factory();
+    figure* tmpCyl = FactoryCylinder->create("cylinder");
     std::vector<double> vals;
 // Act
-    _Cylndr = templ->createFigure();
     vals.push_back(2);
     vals.push_back(2);
 // Assert
-    EXPECT_TRUE(_Cylndr->SetValue(vals));
+    ASSERT_NO_THROW(tmpCyl->SetValue(vals));
 }
 
-TEST(Epremyan_Norik_Cylinder, CantSetNegativeValue) {
+TEST(Epremyan_Norik_Cylinder, CantSetNegativeValue1) {
 // Arrange
-    CylinderFactory* templ = new CylinderFactory;
-    figure* _Cylndr;
+    Factory* FactoryCylinder = new Factory();
+    figure* tmpCyl = FactoryCylinder->create("cylinder");
     std::vector<double> vals;
 // Act
-    _Cylndr = templ->createFigure();
     vals.push_back(-2);
     vals.push_back(2);
 // Assert
-    EXPECT_ANY_THROW(_Cylndr->SetValue(vals));
+    EXPECT_ANY_THROW(tmpCyl->SetValue(vals));
+}
+
+TEST(Epremyan_Norik_Cylinder, CantSetNegativeValue2) {
+// Arrange
+    Factory* FactoryCylinder = new Factory();
+    figure* tmpCyl = FactoryCylinder->create("cylinder");
+    std::vector<double> vals;
+// Act
+    vals.push_back(2);
+    vals.push_back(-2);
+// Assert
+    EXPECT_ANY_THROW(tmpCyl->SetValue(vals));
 }
 
 TEST(Epremyan_Norik_Cylinder, CanCalculateArea) {
 // Arrange
-    CylinderFactory* templ = new CylinderFactory;
-    figure* _Cylndr;
+    Factory* FactoryCylinder = new Factory();
+    figure* tmpCyl = FactoryCylinder->create("cylinder");
     std::vector<double> vals;
 // Act
-    _Cylndr = templ->createFigure();
     vals.push_back(2);
     vals.push_back(2);
-    _Cylndr->SetValue(vals);
+    tmpCyl->SetValue(vals);
 // Assert
-    EXPECT_DOUBLE_EQ(_Cylndr->area(), 2*M_PI*2*4);
+    EXPECT_DOUBLE_EQ(tmpCyl->area(), 2*M_PI*2*4);
 }
-
-
 
 // -----------------------------TESTS FOR CONE
 TEST(Epremyan_Norik_Cone, CanCreateFactoryObject) {
 // Arrange
 // Act
 // Assert
-    ASSERT_NO_THROW(ConeFactory tmp);
+    ASSERT_NO_THROW(cone tmp);
 }
 
-TEST(Epremyan_Norik_Cone, CanDeleteFactoryObject) {
+TEST(Epremyan_Norik_Cone, CanFactoryCreateObject) {
 // Arrange
-    ConeFactory* templ = new ConeFactory;
+    Factory* FactoryCone = new Factory();
 // Act
 // Assert
-    ASSERT_NO_THROW(delete templ);
-}
-
-TEST(Epremyan_Norik_Cone, CanCreateObject) {
-// Arrange
-    ConeFactory* templ = new ConeFactory;
-// Act
-// Assert
-    ASSERT_NO_THROW(templ->createFigure());
-}
-
-TEST(Epremyan_Norik_Cone, CanGetName) {
-// Arrange
-    ConeFactory* templ = new ConeFactory;
-    figure* _Cone;
-// Act
-    _Cone = templ->createFigure();
-// Assert
-    EXPECT_EQ(_Cone->GetName(), "cone");
+    ASSERT_NO_THROW(FactoryCone->create("cone"));
 }
 
 TEST(Epremyan_Norik_Cone, CanGetValue) {
 // Arrange
-    ConeFactory* templ = new ConeFactory;
-    figure* _Cone;
+    Factory* FactoryCone = new Factory();
+    figure* tmpCone = FactoryCone->create("cone");
     std::vector<double>* vals;
     double vals_sum = 0;
 // Act
-    _Cone = templ->createFigure();
-    vals = _Cone->GetValue();
+    vals = tmpCone->GetValue();
     vals_sum = (*vals)[0] + (*vals)[1];
 // Assert
     EXPECT_DOUBLE_EQ(vals_sum, 2);
@@ -232,41 +179,50 @@ TEST(Epremyan_Norik_Cone, CanGetValue) {
 
 TEST(Epremyan_Norik_Cone, CanSetValue) {
 // Arrange
-    ConeFactory* templ = new ConeFactory;
-    figure* _Cone;
+    Factory* FactoryCone = new Factory();
+    figure* tmpCone = FactoryCone->create("cone");
     std::vector<double> vals;
 // Act
-    _Cone = templ->createFigure();
     vals.push_back(2);
     vals.push_back(2);
 // Assert
-    EXPECT_TRUE(_Cone->SetValue(vals));
+    ASSERT_NO_THROW(tmpCone->SetValue(vals));
 }
 
-TEST(Epremyan_Norik_Cone, CantSetNegativeValue) {
+TEST(Epremyan_Norik_Cone, CantSetNegativeValue1) {
 // Arrange
-    ConeFactory* templ = new ConeFactory;
-    figure* _Cone;
+    Factory* FactoryCone = new Factory();
+    figure* tmpCone = FactoryCone->create("cone");
     std::vector<double> vals;
 // Act
-    _Cone = templ->createFigure();
     vals.push_back(-2);
     vals.push_back(2);
 // Assert
-    EXPECT_ANY_THROW(_Cone->SetValue(vals));
+    EXPECT_ANY_THROW(tmpCone->SetValue(vals));
+}
+
+TEST(Epremyan_Norik_Cone, CantSetNegativeValue2) {
+// Arrange
+    Factory* FactoryCone = new Factory();
+    figure* tmpCone = FactoryCone->create("cone");
+    std::vector<double> vals;
+// Act
+    vals.push_back(2);
+    vals.push_back(-2);
+// Assert
+    EXPECT_ANY_THROW(tmpCone->SetValue(vals));
 }
 
 TEST(Epremyan_Norik_Cone, CanCalculateArea) {
 // Arrange
-    ConeFactory* templ = new ConeFactory;
-    figure* _Cone;
+    Factory* FactoryCone = new Factory();
+    figure* tmpCone = FactoryCone->create("cone");
     std::vector<double> vals;
     double forming = sqrt(exp2(2) + exp2(2));
 // Act
-    _Cone = templ->createFigure();
     vals.push_back(2);
     vals.push_back(2);
-    _Cone->SetValue(vals);
+    tmpCone->SetValue(vals);
 // Assert
-    EXPECT_DOUBLE_EQ(_Cone->area(), M_PI * 2 *(2+forming));
+    EXPECT_DOUBLE_EQ(tmpCone->area(), M_PI * 2 *(2+forming));
 }
