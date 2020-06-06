@@ -44,51 +44,51 @@ TEST(Epremyan_Norik_Application, CanCalculateCubeArea) {
 }
 
 TEST(Epremyan_Norik_Application, CanCalculateConeArea) {
-	// Arrange
-	area_calculator_app test;
-	const char* arr4[] = { "Program_name", "cone", "2", "2" };
-	const char** data4 = arr4;
-	// Act
-	// Assert
-	EXPECT_EQ(test(4, data4), "Area of Figure cone 30.3379");
+// Arrange
+    area_calculator_app test;
+    const char* arr4[] = { "Program_name", "cone", "2", "2" };
+    const char** data4 = arr4;
+// Act
+// Assert
+    EXPECT_EQ(test(4, data4), "Area of Figure cone 30.3379");
 }
 
 TEST(Epremyan_Norik_Application, CanCalculateCylinderArea) {
-	// Arrange
-	area_calculator_app test;
-	const char* arr4[] = { "Program_name", "cylinder", "2", "2" };
-	const char** data4 = arr4;
-	// Act
-	// Assert
-	EXPECT_EQ(test(4, data4), "Area of Figure cylinder 50.2655");
+// Arrange
+    area_calculator_app test;
+    const char* arr4[] = { "Program_name", "cylinder", "2", "2" };
+    const char** data4 = arr4;
+// Act
+// Assert
+    EXPECT_EQ(test(4, data4), "Area of Figure cylinder 50.2655");
 }
 
 TEST(Epremyan_Norik_Application, CantCalculateCylinderArea) {
-	// Arrange
-	area_calculator_app test;
-	const char* arr4[] = { "Program_name", "cylinder", "2"};
-	const char** data4 = arr4;
-	// Act
-	// Assert
-	EXPECT_EQ(test(3, data4), "Cant create figure. Invalid arguments.");
+// Arrange
+    area_calculator_app test;
+    const char* arr4[] = { "Program_name", "cylinder", "2"};
+    const char** data4 = arr4;
+// Act
+// Assert
+    EXPECT_EQ(test(3, data4), "Cant create figure. Invalid arguments.");
 }
 
 TEST(Epremyan_Norik_Application, CantCalculateConeArea) {
-	// Arrange
-	area_calculator_app test;
-	const char* arr4[] = { "Program_name", "cone", "2" };
-	const char** data4 = arr4;
-	// Act
-	// Assert
-	EXPECT_EQ(test(3, data4), "Cant create figure. Invalid arguments.");
+// Arrange
+    area_calculator_app test;
+    const char* arr4[] = { "Program_name", "cone", "2" };
+    const char** data4 = arr4;
+// Act
+// Assert
+    EXPECT_EQ(test(3, data4), "Cant create figure. Invalid arguments.");
 }
 
 TEST(Epremyan_Norik_Application, CantCalculateCubeArea) {
-	// Arrange
-	area_calculator_app test;
-	const char* arr4[] = { "Program_name", "cube"};
-	const char** data4 = arr4;
-	// Act
-	// Assert
-	EXPECT_EQ(test(2, data4), "Cant create figure. Invalid arguments.");
+// Arrange
+    area_calculator_app test;
+    const char* arr4[] = { "Program_name", "cube"};
+    const char** data4 = arr4;
+// Act
+// Assert
+    EXPECT_EQ(test(2, data4), "Cant create figure. Invalid arguments.");
 }
