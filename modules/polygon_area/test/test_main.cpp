@@ -1,4 +1,4 @@
-// Copyright 2020 Mityagina Daria & Golubeva Anna
+// Copyright 2020 Loogin Mikhail
 
 #include <gtest/gtest.h>
 
