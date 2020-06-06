@@ -13,67 +13,6 @@ TEST(Epremyan_Norik_Application, CanCreateObject) {
     ASSERT_NO_THROW(area_calculator_app test());
 }
 
-TEST(Epremyan_Norik_Application, CanCreateFigureCube) {
-// Arrange
-    area_calculator_app test;
-    std::vector<std::string> data3 = { "cube", "2" };
-// Act
-// Assert
-    EXPECT_TRUE(test.CanCreateFigure(3, data3));
-}
-
-TEST(Epremyan_Norik_Application, CanCreateFigureCone) {
-// Arrange
-    area_calculator_app test;
-    std::vector<std::string> data4 = { "cone", "2", "2" };
-// Act
-// Assert
-    EXPECT_TRUE(test.CanCreateFigure(4, data4));
-}
-
-TEST(Epremyan_Norik_Application, CanCreateFigureCylinder) {
-// Arrange
-    area_calculator_app test;
-    std::vector<std::string> data4 = { "cylinder", "2", "2" };
-// Act
-// Assert
-    EXPECT_TRUE(test.CanCreateFigure(4, data4));
-}
-
-TEST(Epremyan_Norik_Application, CantCreateFigureCube) {
-// Arrange
-    area_calculator_app test;
-    std::vector<std::string> data3 = { "cube", "2" };
-// Act
-// Assert
-    EXPECT_FALSE(test.CanCreateFigure(2, data3));
-}
-
-TEST(Epremyan_Norik_Application, CantCreateFigureCylinder) {
-// Arrange
-    area_calculator_app test;
-    std::vector<std::string> data4 = {"cylinder", "2", "2" };
-// Act
-// Assert
-    EXPECT_FALSE(test.CanCreateFigure(3, data4));
-}
-
-TEST(Epremyan_Norik_Application, CantCreateFigureCone) {
-// Arrange
-    area_calculator_app test;
-    std::vector<std::string> data4 = {  "cone", "2", "2" };
-// Act
-// Assert
-    EXPECT_FALSE(test.CanCreateFigure(3, data4));
-}
-TEST(Epremyan_Norik_Application, CantCreateUnknownFigure) {
-// Arrange
-    area_calculator_app test;
-    std::vector<std::string> data4 = {  "sphere", "2", "2" };
-// Act
-// Assert
-    EXPECT_FALSE(test.CanCreateFigure(4, data4));
-}
 TEST(Epremyan_Norik_Application, CantCreateInOperator) {
 // Arrange
     area_calculator_app test;
@@ -82,41 +21,6 @@ TEST(Epremyan_Norik_Application, CantCreateInOperator) {
 // Act
 // Assert
     EXPECT_EQ(test(4, data4), "Cant create figure. Invalid arguments.");
-}
-
-TEST(Epremyan_Norik_Application, CantCreatePointerUnknownFigure) {
-// Arrange
-    area_calculator_app test;
-    std::vector<std::string> data4 = {"sphere", "2", "2" };
-// Act
-// Assert
-    EXPECT_EQ(test.CreateFigure(data4), nullptr);
-}
-TEST(Epremyan_Norik_Application, CreateFigurePointerCube) {
-// Arrange
-    area_calculator_app test;
-    std::vector<std::string> data3 = { "cube", "2" };
-// Act
-// Assert
-    EXPECT_FALSE(test.CreateFigure(data3) == nullptr);
-}
-
-TEST(Epremyan_Norik_Application, CreateFigurePointerCone) {
-// Arrange
-    area_calculator_app test;
-    std::vector<std::string> data4 = {"cone", "2", "2" };
-// Act
-// Assert
-	EXPECT_FALSE(test.CreateFigure(data4) == nullptr);
-}
-
-TEST(Epremyan_Norik_Application, CreateFigurePointerCylinder) {
-// Arrange
-    area_calculator_app test;
-    std::vector<std::string> data4 = { "cylinder", "2", "2" };
-// Act
-// Assert
-	EXPECT_FALSE(test.CreateFigure(data4) == nullptr);
 }
 
 TEST(Epremyan_Norik_Application, CantCalculateArea) {
@@ -129,7 +33,7 @@ TEST(Epremyan_Norik_Application, CantCalculateArea) {
     EXPECT_EQ(test(3, data3), "Cant create figure. Invalid arguments.");
 }
 
-TEST(Epremyan_Norik_Application, CanCalculateArea) {
+TEST(Epremyan_Norik_Application, CanCalculateCubeArea) {
 // Arrange
     area_calculator_app test;
     const char* arr3[] = { "Program_name", "cube", "2" };
@@ -137,4 +41,54 @@ TEST(Epremyan_Norik_Application, CanCalculateArea) {
 // Act
 // Assert
     EXPECT_EQ(test(3, data3), "Area of Figure cube 24");
+}
+
+TEST(Epremyan_Norik_Application, CanCalculateConeArea) {
+	// Arrange
+	area_calculator_app test;
+	const char* arr4[] = { "Program_name", "cone", "2", "2" };
+	const char** data4 = arr4;
+	// Act
+	// Assert
+	EXPECT_EQ(test(4, data4), "Area of Figure cone 30.3379");
+}
+
+TEST(Epremyan_Norik_Application, CanCalculateCylinderArea) {
+	// Arrange
+	area_calculator_app test;
+	const char* arr4[] = { "Program_name", "cylinder", "2", "2" };
+	const char** data4 = arr4;
+	// Act
+	// Assert
+	EXPECT_EQ(test(4, data4), "Area of Figure cylinder 50.2655");
+}
+
+TEST(Epremyan_Norik_Application, CantCalculateCylinderArea) {
+	// Arrange
+	area_calculator_app test;
+	const char* arr4[] = { "Program_name", "cylinder", "2"};
+	const char** data4 = arr4;
+	// Act
+	// Assert
+	EXPECT_EQ(test(3, data4), "Cant create figure. Invalid arguments.");
+}
+
+TEST(Epremyan_Norik_Application, CantCalculateConeArea) {
+	// Arrange
+	area_calculator_app test;
+	const char* arr4[] = { "Program_name", "cone", "2" };
+	const char** data4 = arr4;
+	// Act
+	// Assert
+	EXPECT_EQ(test(3, data4), "Cant create figure. Invalid arguments.");
+}
+
+TEST(Epremyan_Norik_Application, CantCalculateCubeArea) {
+	// Arrange
+	area_calculator_app test;
+	const char* arr4[] = { "Program_name", "cube"};
+	const char** data4 = arr4;
+	// Act
+	// Assert
+	EXPECT_EQ(test(2, data4), "Cant create figure. Invalid arguments.");
 }

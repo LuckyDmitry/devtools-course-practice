@@ -61,7 +61,7 @@ figure* area_calculator_app::CreateFigure(std::vector<std::string> argv) {
         } else {
             if (argv[0] == "cone") {
 				Factory* FactoryCube = new Factory();
-				_figure = FactoryCube->create("cylinder");
+				_figure = FactoryCube->create("cone");
                 vec.push_back(atof(argv[1].c_str()));
                 vec.push_back(atof(argv[2].c_str()));
                 _figure->SetValue(vec);
