@@ -97,4 +97,4 @@ figure* Factory::create(std::string name) {
         }
     }
     return result;
-};
+}
