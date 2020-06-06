@@ -20,7 +20,7 @@ void cone::SetValue(std::vector<double> _vals) {
     this->Radius = _radius;
 }
 std::vector<double> cone::GetValue() {
-	std::vector<double> vals;;
+    std::vector<double> vals;;
     vals.push_back(Radius);
     vals.push_back(Height);
     return vals;
