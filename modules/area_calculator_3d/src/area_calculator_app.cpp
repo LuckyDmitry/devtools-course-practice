@@ -47,21 +47,21 @@ figure* area_calculator_app::CreateFigure(std::vector<std::string> argv) {
     figure* _figure = nullptr;
     std::vector<double> vec;
     if (argv[0] == "cube") {
-		Factory* FactoryCube = new Factory();
-		_figure = FactoryCube->create("cube");
+        Factory* FactoryCube = new Factory();
+        _figure = FactoryCube->create("cube");
         vec.push_back(atof(argv[1].c_str()));
         _figure->SetValue(vec);
     } else {
         if (argv[0] == "cylinder") {
-			Factory* FactoryCube = new Factory();
-			_figure = FactoryCube->create("cylinder");
+            Factory* FactoryCube = new Factory();
+            _figure = FactoryCube->create("cylinder");
             vec.push_back(atof(argv[1].c_str()));
             vec.push_back(atof(argv[2].c_str()));
             _figure->SetValue(vec);
         } else {
             if (argv[0] == "cone") {
-				Factory* FactoryCube = new Factory();
-				_figure = FactoryCube->create("cone");
+                Factory* FactoryCube = new Factory();
+                _figure = FactoryCube->create("cone");
                 vec.push_back(atof(argv[1].c_str()));
                 vec.push_back(atof(argv[2].c_str()));
                 _figure->SetValue(vec);
