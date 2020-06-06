@@ -10,11 +10,11 @@
 
 class PolygonUi {
  public:
-    PolygonUi() noexcept = default;
+    PolygonUi() = default;
 
-    PolygonUi(const PolygonUi &other) noexcept = default;
+    PolygonUi(const PolygonUi &other) = default;
 
-        ~PolygonUi() noexcept = default;
+    ~PolygonUi() = default;
 
     auto operator()(int argc, const char** argv) -> std::string;
 
