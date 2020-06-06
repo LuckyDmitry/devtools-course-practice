@@ -47,6 +47,6 @@ class cylinder : public figure {
 // Factories
 class Factory {
  public:
-    static figure* Factory::create(std::string name);
+    figure* Factory::create(std::string name);
 };
 #endif  // MODULES_AREA_CALCULATOR_3D_INCLUDE_CALCULATOR_H_
