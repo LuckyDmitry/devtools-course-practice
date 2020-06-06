@@ -1,0 +1,53 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Welcom to polygon area calculator!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} a 0 
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Invalid params count."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Solve_Connectedness
+    COMMAND ${APPLICATION} c 0. 0. 0. 1. 1. 1. 1. 0.
+)
+set_tests_properties (${prefix}_can_Solve_Connectedness PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result: 1"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Solve_Perimeter
+    COMMAND ${APPLICATION} p 0. 0. 0. 1. 1. 1. 1. 0.
+)
+set_tests_properties (${prefix}_can_Solve_Perimeter PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result: 4.00000"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Solve_Area
+    COMMAND ${APPLICATION} a 0. 0. 0. 1. 1. 1. 1. 0.
+)
+set_tests_properties (${prefix}_can_Solve_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result: 1.00000"
+    LABELS "${MODULE}")
