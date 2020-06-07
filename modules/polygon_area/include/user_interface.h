@@ -24,7 +24,6 @@ class PolygonUi {
     void parseArguments(int argc, const char** argv);
 
     std::vector<polygon_engine::Point> points;
-    polygon_engine::Operation          operation;
 };
 
 #endif  // MODULES_POLYGON_AREA_INCLUDE_USER_INTERFACE_H_

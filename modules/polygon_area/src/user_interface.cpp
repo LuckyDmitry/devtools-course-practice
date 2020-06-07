@@ -18,16 +18,18 @@ auto PolygonUi::operator()(int argc, const char** argv) -> std::string {
             polygon_engine::Polygon polygon(points);
             std::string             result;
 
-            switch (operation) {
-                case polygon_engine::Operation::CONNECTEDNESS:
-                    result =  std::to_string(polygon.isConnectedness());
-                    break;
-                case polygon_engine::Operation::PERIMETER:
-                    result = std::to_string(polygon.getPerimeter());
-                    break;
-                case polygon_engine::Operation::AREA:
-                    result = std::to_string(polygon.getArea());
-                    break;
+                switch (argv[1][0]) {
+                    case 'c':
+                        result =  std::to_string(polygon.isConnectedness());
+                        break;
+                    case 'p':
+                        result = std::to_string(polygon.getPerimeter());
+                        break;
+                    case 'a':
+                        result = std::to_string(polygon.getArea());
+                        break;
+                    default:
+                        throw std::invalid_argument("Invalid operation type.");
                 }
 
             output = "\nResult: " + result + "\n\n";
@@ -55,19 +57,7 @@ void PolygonUi::parseArguments(int argc, const char** argv) {
         throw std::invalid_argument("Invalid params count.");
     }
 
-    switch (argv[1][0]) {
-    case 'c':
-        operation = polygon_engine::Operation::CONNECTEDNESS;
-        break;
-    case 'p':
-        operation = polygon_engine::Operation::PERIMETER;
-        break;
-    case 'a':
-        operation = polygon_engine::Operation::AREA;
-        break;
-    default:
-        throw std::invalid_argument("Invalid operation type.");
-    }
+
 
     for (int i = 2; i < argc; i += 2) {
         points.push_back({std::stod(argv[i]), std::stod(argv[i + 1])});
