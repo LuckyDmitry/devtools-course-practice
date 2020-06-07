@@ -20,7 +20,7 @@ TEST(Epremyan_Norik_Application, CantCreateInOperator) {
     const char** data4 = arr4;
 // Act
 // Assert
-    EXPECT_THROW(test(4, data4), "Cant create figure. Invalid arguments.");
+    EXPECT_ANY_THROW(test(4, data4));
 }
 
 TEST(Epremyan_Norik_Application, CantCalculateArea) {
@@ -70,7 +70,7 @@ TEST(Epremyan_Norik_Application, CantCalculateCylinderArea) {
     const char** data4 = arr4;
 // Act
 // Assert
-    EXPECT_EQ(test(3, data4), "Cant create figure. Invalid arguments.");
+	EXPECT_ANY_THROW(test(3, data4));
 }
 
 TEST(Epremyan_Norik_Application, CantCalculateConeArea) {
@@ -80,7 +80,7 @@ TEST(Epremyan_Norik_Application, CantCalculateConeArea) {
     const char** data4 = arr4;
 // Act
 // Assert
-    EXPECT_EQ(test(3, data4), "Cant create figure. Invalid arguments.");
+	EXPECT_ANY_THROW(test(3, data4));
 }
 
 TEST(Epremyan_Norik_Application, CantCalculateCubeArea) {
@@ -90,5 +90,5 @@ TEST(Epremyan_Norik_Application, CantCalculateCubeArea) {
     const char** data4 = arr4;
 // Act
 // Assert
-    EXPECT_EQ(test(2, data4), "Cant create figure. Invalid arguments.");
+    EXPECT_ANY_THROW(test(2, data4));
 }
