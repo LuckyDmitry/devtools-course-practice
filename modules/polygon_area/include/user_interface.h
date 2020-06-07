@@ -16,7 +16,7 @@ class PolygonUi {
 
     ~PolygonUi() = default;
 
-    auto operator()(int argc, const char** argv) -> std::string;
+    auto operator()(int argc, const char** argv) -> int;
 
     auto help() -> std::string;
 

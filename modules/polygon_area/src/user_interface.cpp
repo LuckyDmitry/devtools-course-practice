@@ -2,28 +2,40 @@
 
 #include <stdexcept>
 #include <string>
+#include <iostream>
 
 #include "include/user_interface.h"
 #include "include/polygon_engine.h"
 
-auto PolygonUi::operator()(int argc, const char** argv) -> std::string {
-    parseArguments(argc, argv);
-
-    polygon_engine::Polygon polygon(points);
-    std::string             result;
-
-    switch (operation) {
-    case polygon_engine::Operation::CONNECTEDNESS:
-        result =  std::to_string(polygon.isConnectedness());
-        break;
-    case polygon_engine::Operation::PERIMETER:
-        result = std::to_string(polygon.getPerimeter());
-        break;
-    case polygon_engine::Operation::AREA:
-        result = std::to_string(polygon.getArea());
-        break;
+auto PolygonUi::operator()(int argc, const char** argv) -> int {
+    if (argc == 1) {
+        std::cout << help();
+        return 0;
     }
-    return result;
+    try {
+        parseArguments(argc, argv);
+
+        polygon_engine::Polygon polygon(points);
+        std::string             result;
+
+        switch (operation) {
+            case polygon_engine::Operation::CONNECTEDNESS:
+                result =  std::to_string(polygon.isConnectedness());
+                break;
+            case polygon_engine::Operation::PERIMETER:
+                result = std::to_string(polygon.getPerimeter());
+                break;
+            case polygon_engine::Operation::AREA:
+                result = std::to_string(polygon.getArea());
+                break;
+            }
+
+        std::cout << "\nResult: " << result << "\n\n";
+    } catch (std::exception &e) {
+        std::cerr << e.what();
+        return 1;
+    }
+    return 0;
 }
 
 auto PolygonUi::help() -> std::string {
@@ -34,7 +46,8 @@ auto PolygonUi::help() -> std::string {
             "    Area\n\n" +
             "To run app simply use comand line arguments by the same way" +
             " as shown below:\n" +
-            "<operation> <x1> <y1> <x2> <y2> and so on\n\n";
+            "<operation> <x1> <y1> <x2> <y2> <x3> <y3> <x4> <y4> and so on\n" +
+            "The number of points should be not less then 4.\n\n";
 }
 
 void PolygonUi::parseArguments(int argc, const char** argv) {
