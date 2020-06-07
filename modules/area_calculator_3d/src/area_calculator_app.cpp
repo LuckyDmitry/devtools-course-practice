@@ -10,7 +10,7 @@ std::string area_calculator_app::operator()(int argc, const char** argv) {
     for (int i = 1; i < argc; i++) {
         s_vec.push_back(argv[i]);
     }
-    if (!(CanCreateFigure(argc, s_vec))) {
+    if (!(isValidArguments(argc, s_vec))) {
         return "Cant create figure. Invalid arguments.";
     }
     figure* _figure = CreateFigure(s_vec);
