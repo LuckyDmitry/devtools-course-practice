@@ -20,11 +20,13 @@ auto PolygonUi::operator()(int argc, const char** argv) -> std::string {
 
             std::vector<polygon_engine::Point> points((argc >> 1));
 
-            for (int i = 2; i < argc; i += 2) {
+            int i = 2;
+            while (i < argc) {
                 polygon_engine::Point p;
                 p.x = std::stod(argv[i]);
                 p.y = std::stod(argv[i + 1]);
                 points[(i >> 1) - 1] = p;
+                i = i + 2;
             }
 
             polygon_engine::Polygon polygon(points);
