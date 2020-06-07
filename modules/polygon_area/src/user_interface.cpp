@@ -62,7 +62,10 @@ auto PolygonUi::parseArguments(int argc,
     }
 
     for (int i = 2; i < argc; i += 2) {
-        points.push_back({std::stod(argv[i]), std::stod(argv[i + 1])});
+        polygon_engine::Point p;
+        p.x = std::stod(argv[i]);
+        p.y = std::stod(argv[i + 1]);
+        points.push_back(p);
     }
     return points;
 }
