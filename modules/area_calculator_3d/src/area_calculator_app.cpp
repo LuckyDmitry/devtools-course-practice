@@ -42,8 +42,7 @@ bool area_calculator_app::CanCreateFigure(
 figure* area_calculator_app::CreateFigure(std::vector<std::string> argv) {
     figure* _figure = nullptr;
     std::vector<double> vec;
-    Factory* FactoryCube = new Factory();
-    _figure = FactoryCube->create(argv[0]);
+    _figure = Factory::create(argv[0]);
     for (unsigned int i = 1; i < argv.size(); i++) {
         vec.push_back(std::stod(argv[i].c_str()));
     }
