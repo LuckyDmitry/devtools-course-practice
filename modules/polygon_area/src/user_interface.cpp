@@ -54,8 +54,9 @@ auto PolygonUi::help() -> std::string {
 }
 
 auto PolygonUi::parseArguments(int argc,
-                               const char** argv) -> std::vector<Point> {
-    std::vector<Point> points;
+                               const char** argv)
+                               -> std::vector<polygon_engine::Point> {
+    std::vector<polygon_engine::Point> points;
     if (argc % 2 != 0) {
         throw std::invalid_argument("Invalid params count.");
     }
