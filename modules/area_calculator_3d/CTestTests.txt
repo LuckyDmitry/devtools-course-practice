@@ -12,74 +12,35 @@ set_tests_properties (${prefix}_can_Run PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Print_Help_Without_Arguments
-    COMMAND ${APPLICATION}
+    NAME ${prefix}_can_calculate_cube_area
+    COMMAND ${APPLICATION} cube 2
 )
 
-set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "This is a complex number calculator"
+set_tests_properties (${prefix}_can_calculate_cube_area PROPERTIES
+    PASS_REGULAR_EXPRESSION "Area of Figure cube 24"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments
-    COMMAND ${APPLICATION} 1 2
+    NAME ${prefix}_can_calculate_cylinder_area
+    COMMAND ${APPLICATION} cylinder 4 4
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "ERROR: Should be 5 arguments."
+set_tests_properties (${prefix}_can_calculate_cylinder_area PROPERTIES
+    PASS_REGULAR_EXPRESSION "Area of Figure cylinder 201.062"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Detect_Wrong_Number_Format
-    COMMAND ${APPLICATION} 1 ip 2 3 +
+    NAME ${prefix}_can_calculate_cone_area
+    COMMAND ${APPLICATION} cone 2 2
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong number format!"
+set_tests_properties (${prefix}_can_calculate_cone_area PROPERTIES
+    PASS_REGULAR_EXPRESSION "Area of Figure cone 30.3379"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Detect_Wrong_Operation_Format
-    COMMAND ${APPLICATION} 1 1 2 3 +trash
+    NAME ${prefix}_can_calculate_with_too_much_parameters
+    COMMAND ${APPLICATION} cylinder 4 4 4 4
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong operation format!"
+set_tests_properties (${prefix}_can_calculate_with_too_much_parameters PROPERTIES
+    PASS_REGULAR_EXPRESSION "Area of Figure cylinder 201.062"
     LABELS "${MODULE}")
 
-add_test(
-    NAME ${prefix}_can_Add_Complexs
-    COMMAND ${APPLICATION} 2.5 4.5 1.0 4.5 +
-)
-set_tests_properties (${prefix}_can_Add_Complexs PROPERTIES
-    PASS_REGULAR_EXPRESSION "Real = 3.5 Imaginary = 9"
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_Diff_Complexs
-    COMMAND ${APPLICATION} -17 0 15 -3.5 -
-)
-set_tests_properties (${prefix}_can_Diff_Complexs PROPERTIES
-    PASS_REGULAR_EXPRESSION "Real = -32 Imaginary = 3.5"
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_Mult_Complexs
-    COMMAND ${APPLICATION} 13 -2 4.6 7.3 *
-)
-set_tests_properties (${prefix}_can_Mult_Complexs PROPERTIES
-    PASS_REGULAR_EXPRESSION "Real = 74.4 Imaginary = 85.7"
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_Divide_Complexs
-    COMMAND ${APPLICATION} 27 30 15 20 /
-)
-set_tests_properties (${prefix}_can_Divide_Complexs PROPERTIES
-    PASS_REGULAR_EXPRESSION "Real = 1.608 Imaginary = -0.144"
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_Detect_Divide_By_Zero
-    COMMAND ${APPLICATION} 27 30 0 0 /
-)
-set_tests_properties (${prefix}_can_Detect_Divide_By_Zero PROPERTIES
-    PASS_REGULAR_EXPRESSION "Can't divide by zero"
-    LABELS "${MODULE}")
