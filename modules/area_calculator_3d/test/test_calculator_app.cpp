@@ -70,7 +70,7 @@ TEST(Epremyan_Norik_Application, CantCalculateCylinderArea) {
     const char** data4 = arr4;
 // Act
 // Assert
-	EXPECT_ANY_THROW(test(3, data4));
+    EXPECT_ANY_THROW(test(3, data4));
 }
 
 TEST(Epremyan_Norik_Application, CantCalculateConeArea) {
@@ -80,7 +80,7 @@ TEST(Epremyan_Norik_Application, CantCalculateConeArea) {
     const char** data4 = arr4;
 // Act
 // Assert
-	EXPECT_ANY_THROW(test(3, data4));
+    EXPECT_ANY_THROW(test(3, data4));
 }
 
 TEST(Epremyan_Norik_Application, CantCalculateCubeArea) {
