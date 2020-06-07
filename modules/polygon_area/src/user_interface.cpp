@@ -2,40 +2,40 @@
 
 #include <stdexcept>
 #include <string>
-#include <iostream>
 
 #include "include/user_interface.h"
 #include "include/polygon_engine.h"
 
-auto PolygonUi::operator()(int argc, const char** argv) -> int {
+auto PolygonUi::operator()(int argc, const char** argv) -> std::string {
+    std::string output;
+
     if (argc == 1) {
-        std::cout << help();
-        return 0;
-    }
+        output = help();
+    } else {
     try {
-        parseArguments(argc, argv);
+            parseArguments(argc, argv);
 
-        polygon_engine::Polygon polygon(points);
-        std::string             result;
+            polygon_engine::Polygon polygon(points);
+            std::string             result;
 
-        switch (operation) {
-            case polygon_engine::Operation::CONNECTEDNESS:
-                result =  std::to_string(polygon.isConnectedness());
-                break;
-            case polygon_engine::Operation::PERIMETER:
-                result = std::to_string(polygon.getPerimeter());
-                break;
-            case polygon_engine::Operation::AREA:
-                result = std::to_string(polygon.getArea());
-                break;
-            }
+            switch (operation) {
+                case polygon_engine::Operation::CONNECTEDNESS:
+                    result =  std::to_string(polygon.isConnectedness());
+                    break;
+                case polygon_engine::Operation::PERIMETER:
+                    result = std::to_string(polygon.getPerimeter());
+                    break;
+                case polygon_engine::Operation::AREA:
+                    result = std::to_string(polygon.getArea());
+                    break;
+                }
 
-        std::cout << "\nResult: " << result << "\n\n";
-    } catch (std::exception &e) {
-        std::cerr << e.what();
-        return 1;
+            output = "\nResult: " + result + "\n\n";
+        } catch (std::exception &e) {
+            output = e.what();
+        }
     }
-    return 0;
+    return output;
 }
 
 auto PolygonUi::help() -> std::string {

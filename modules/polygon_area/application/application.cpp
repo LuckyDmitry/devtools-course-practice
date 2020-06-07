@@ -6,5 +6,7 @@
 
 int main(int argc, const char** argv) {
     PolygonUi ui;
-    return ui(argc, argv);
+    auto output = ui(argc, argv);
+    std::cout << output;
+    return 0;
 }

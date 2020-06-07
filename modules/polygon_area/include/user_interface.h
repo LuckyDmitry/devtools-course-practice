@@ -16,11 +16,11 @@ class PolygonUi {
 
     ~PolygonUi() = default;
 
-    auto operator()(int argc, const char** argv) -> int;
-
-    auto help() -> std::string;
+    auto operator()(int argc, const char** argv) -> std::string;
 
  private:
+    auto help() -> std::string;
+
     void parseArguments(int argc, const char** argv);
 
     std::vector<polygon_engine::Point> points;
