@@ -16,10 +16,7 @@ std::string area_calculator_app::operator()(int argc, const char** argv) {
     figure* _figure = CreateFigure(s_vec);
     double area = _figure->area();
     std::ostringstream strs;
-    strs << "Area of Figure ";
-    strs << s_vec[0];
-    strs << " ";
-    strs << area;
+    strs << "Area of Figure " << s_vec[0] << " " << area;;
     return strs.str();
 }
 bool area_calculator_app::CanCreateFigure(
@@ -45,27 +42,11 @@ bool area_calculator_app::CanCreateFigure(
 figure* area_calculator_app::CreateFigure(std::vector<std::string> argv) {
     figure* _figure = nullptr;
     std::vector<double> vec;
-    if (argv[0] == "cube") {
-        Factory* FactoryCube = new Factory();
-        _figure = FactoryCube->create("cube");
-        vec.push_back(std::stod(argv[1].c_str()));
-        _figure->SetValue(vec);
-    } else {
-        if (argv[0] == "cylinder") {
-            Factory* FactoryCube = new Factory();
-            _figure = FactoryCube->create("cylinder");
-            vec.push_back(std::stod(argv[1].c_str()));
-            vec.push_back(std::stod(argv[2].c_str()));
-            _figure->SetValue(vec);
-        } else {
-            if (argv[0] == "cone") {
-                Factory* FactoryCube = new Factory();
-                _figure = FactoryCube->create("cone");
-                vec.push_back(std::stod(argv[1].c_str()));
-                vec.push_back(std::stod(argv[2].c_str()));
-                _figure->SetValue(vec);
-            }
-        }
+    Factory* FactoryCube = new Factory();
+    _figure = FactoryCube->create(argv[0]);
+	for (int i = 1; i < argv.size(); i++) {
+        vec.push_back(std::stod(argv[i].c_str()));
     }
+    _figure->SetValue(vec);
     return _figure;
 }
