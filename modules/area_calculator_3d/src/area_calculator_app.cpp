@@ -8,7 +8,7 @@
 std::string area_calculator_app::operator()(int argc, const char** argv) {
     std::vector<std::string> s_vec;
     std::string err = "Cant create figure. Invalid arguments.";
-    figure* _figure;
+	figure* _figure = nullptr;;
     if (argc < 2) return err;
     for (int i = 1; i < argc; i++) {
         s_vec.push_back(argv[i]);
@@ -19,6 +19,7 @@ std::string area_calculator_app::operator()(int argc, const char** argv) {
     catch(char* str) {
         return err;
     }
+    if (_figure == nullptr) return err;
     double area = _figure->area();
     std::ostringstream strs;
     strs << "Area of Figure " << s_vec[0] << " " << area;;
