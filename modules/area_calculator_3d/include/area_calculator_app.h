@@ -10,7 +10,7 @@ class area_calculator_app {
  public:
     std::string operator()(int argc, const char** argv);
  protected:
-    bool CanCreateFigure(int argc, std::vector<std::string> argv);
+    bool isValidArguments(int argc, std::vector<std::string> argv);
     figure* CreateFigure(std::vector<std::string> argv);
 };
 #endif  // MODULES_AREA_CALCULATOR_3D_INCLUDE_AREA_CALCULATOR_APP_H_

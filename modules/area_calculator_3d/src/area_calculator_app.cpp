@@ -19,25 +19,22 @@ std::string area_calculator_app::operator()(int argc, const char** argv) {
     strs << "Area of Figure " << s_vec[0] << " " << area;;
     return strs.str();
 }
-bool area_calculator_app::CanCreateFigure(
+bool area_calculator_app::isValidArguments(
         int argc,
         std::vector<std::string> argv) {
     if (argc < 3) return false;  // Not enough arguments
     if (argv[0] == "cube") {
         return true;
-    } else {
-        if (argv[0] == "cylinder") {
-            if (argc < 4) return false;  // Not enough arguments
-            return true;
-        } else {
-            if (argv[0] == "cone") {
-                if (argc < 4) return false;  // Not enough arguments
-                return true;
-            } else {
-                return false;  // lib don't know this figure
-            }
-        }
     }
+    if (argv[0] == "cylinder") {
+        if (argc < 4) return false;  // Not enough arguments
+        return true;
+    }
+    if (argv[0] == "cone") {
+        if (argc < 4) return false;  // Not enough arguments
+        return true;
+    }
+    return false;  // lib don't know this figure
 }
 figure* area_calculator_app::CreateFigure(std::vector<std::string> argv) {
     figure* _figure = nullptr;
