@@ -14,7 +14,17 @@ auto PolygonUi::operator()(int argc, const char** argv) -> std::string {
         output = help();
     } else {
         try {
-            auto points = parseArguments(argc, argv);
+            std::vector<polygon_engine::Point> points;
+            if (argc % 2 != 0) {
+                throw std::invalid_argument("Invalid params count.");
+            }
+
+            for (int i = 2; i < argc; i += 2) {
+                polygon_engine::Point p;
+                p.x = std::stod(argv[i]);
+                p.y = std::stod(argv[i + 1]);
+                points.push_back(p);
+            }
 
             polygon_engine::Polygon polygon(points);
             std::string             result;
@@ -51,21 +61,4 @@ auto PolygonUi::help() -> std::string {
             " as shown below:\n" +
             "<operation> <x1> <y1> <x2> <y2> <x3> <y3> <x4> <y4> and so on\n" +
             "The number of points should be not less then 4.\n\n";
-}
-
-auto PolygonUi::parseArguments(int argc,
-                               const char** argv)
-                               -> std::vector<polygon_engine::Point> {
-    std::vector<polygon_engine::Point> points;
-    if (argc % 2 != 0) {
-        throw std::invalid_argument("Invalid params count.");
-    }
-
-    for (int i = 2; i < argc; i += 2) {
-        polygon_engine::Point p;
-        p.x = std::stod(argv[i]);
-        p.y = std::stod(argv[i + 1]);
-        points.push_back(p);
-    }
-    return points;
 }
