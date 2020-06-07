@@ -9,6 +9,8 @@
 #include "include/polygon_engine.h"
 
 class PolygonUi {
+    using Point = polygon_engine::Point;
+
  public:
     PolygonUi() = default;
 
@@ -21,9 +23,7 @@ class PolygonUi {
  private:
     auto help() -> std::string;
 
-    void parseArguments(int argc, const char** argv);
-
-    std::vector<polygon_engine::Point> points;
+    auto parseArguments(int argc, const char** argv) -> std::vector<Point>;
 };
 
 #endif  // MODULES_POLYGON_AREA_INCLUDE_USER_INTERFACE_H_

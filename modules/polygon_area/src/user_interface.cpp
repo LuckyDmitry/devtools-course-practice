@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 #include <string>
+#include <vector>
 
 #include "include/user_interface.h"
 #include "include/polygon_engine.h"
@@ -13,7 +14,7 @@ auto PolygonUi::operator()(int argc, const char** argv) -> std::string {
         output = help();
     } else {
     try {
-            parseArguments(argc, argv);
+            auto points = parseArguments(argc, argv);
 
             polygon_engine::Polygon polygon(points);
             std::string             result;
@@ -52,14 +53,15 @@ auto PolygonUi::help() -> std::string {
             "The number of points should be not less then 4.\n\n";
 }
 
-void PolygonUi::parseArguments(int argc, const char** argv) {
+auto PolygonUi::parseArguments(int argc,
+                               const char** argv) -> std::vector<Point> {
+    std::vector<Point> points;
     if (argc % 2 != 0) {
         throw std::invalid_argument("Invalid params count.");
     }
 
-
-
     for (int i = 2; i < argc; i += 2) {
         points.push_back({std::stod(argv[i]), std::stod(argv[i + 1])});
     }
+    return points;
 }
