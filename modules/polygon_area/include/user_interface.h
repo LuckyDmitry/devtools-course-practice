@@ -4,7 +4,6 @@
 #define MODULES_POLYGON_AREA_INCLUDE_USER_INTERFACE_H_
 #include <vector>
 #include <string>
-#include <utility>
 
 #include "include/polygon_engine.h"
 

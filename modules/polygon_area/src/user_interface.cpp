@@ -13,7 +13,7 @@ auto PolygonUi::operator()(int argc, const char** argv) -> std::string {
     if (argc == 1) {
         output = help();
     } else {
-    try {
+        try {
             auto points = parseArguments(argc, argv);
 
             polygon_engine::Polygon polygon(points);
