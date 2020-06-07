@@ -13,7 +13,7 @@ std::string area_calculator_app::operator()(int argc, const char** argv) {
     if (!(isValidArguments(argc, s_vec))) {
         return "Cant create figure. Invalid arguments.";
     }
-    figure* _figure = CreateFigure(s_vec);
+    figure* _figure = parseArguments(s_vec);
     double area = _figure->area();
     std::ostringstream strs;
     strs << "Area of Figure " << s_vec[0] << " " << area;;
@@ -36,7 +36,7 @@ bool area_calculator_app::isValidArguments(
     }
     return false;  // lib don't know this figure
 }
-figure* area_calculator_app::CreateFigure(std::vector<std::string> argv) {
+figure* area_calculator_app::parseArguments(std::vector<std::string> argv) {
     figure* _figure = nullptr;
     std::vector<double> vec;
     _figure = Factory::create(argv[0]);
