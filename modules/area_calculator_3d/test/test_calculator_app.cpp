@@ -20,7 +20,7 @@ TEST(Epremyan_Norik_Application, CantCreateInOperator) {
     const char** data4 = arr4;
 // Act
 // Assert
-    EXPECT_EQ(test(4, data4), "Cant create figure. Invalid arguments.");
+    EXPECT_THROW(test(4, data4), "Cant create figure. Invalid arguments.");
 }
 
 TEST(Epremyan_Norik_Application, CantCalculateArea) {

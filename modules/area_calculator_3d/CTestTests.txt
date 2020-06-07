@@ -44,18 +44,3 @@ set_tests_properties (${prefix}_can_calculate_with_too_much_parameters PROPERTIE
     PASS_REGULAR_EXPRESSION "Area of Figure cylinder 201.062"
     LABELS "${MODULE}")
 
-add_test(
-    NAME ${prefix}_cant_create_unknown_figure
-    COMMAND ${APPLICATION} sphere 2 2
-)
-set_tests_properties (${prefix}_cant_create_unknown_figure PROPERTIES
-    PASS_REGULAR_EXPRESSION "Cant create figure. Invalid arguments."
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_cant_create_with_few_parameters
-    COMMAND ${APPLICATION} cylinder 2 
-)
-set_tests_properties (${prefix}_cant_create_with_few_parameters PROPERTIES
-    PASS_REGULAR_EXPRESSION "Cant create figure. Invalid arguments."
-    LABELS "${MODULE}")

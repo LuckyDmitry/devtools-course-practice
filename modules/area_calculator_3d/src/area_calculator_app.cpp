@@ -19,7 +19,6 @@ std::string area_calculator_app::operator()(int argc, const char** argv) {
     catch(char* str) {
         return err;
     }
-    if (_figure == nullptr) return err;
     double area = _figure->area();
     std::ostringstream strs;
     strs << "Area of Figure " << s_vec[0] << " " << area;;
