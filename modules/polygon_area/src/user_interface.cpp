@@ -14,16 +14,17 @@ auto PolygonUi::operator()(int argc, const char** argv) -> std::string {
         output = help();
     } else {
         try {
-            std::vector<polygon_engine::Point> points;
             if (argc % 2 != 0) {
                 throw std::invalid_argument("Invalid params count.");
             }
+
+            std::vector<polygon_engine::Point> points((argc >> 1));
 
             for (int i = 2; i < argc; i += 2) {
                 polygon_engine::Point p;
                 p.x = std::stod(argv[i]);
                 p.y = std::stod(argv[i + 1]);
-                points.push_back(p);
+                points[(i >> 1) - 1] = p;
             }
 
             polygon_engine::Polygon polygon(points);
