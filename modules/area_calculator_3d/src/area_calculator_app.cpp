@@ -15,7 +15,7 @@ std::string area_calculator_app::operator()(int argc, const char** argv) {
     try {
         _figure = parseArguments(s_vec);
     }
-    catch(char*) {
+    catch(char* str) {
         return err;
     }
     double area = _figure->area();
