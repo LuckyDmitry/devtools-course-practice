@@ -1,7 +1,9 @@
-// Copyright 2020 Loogin Mikhail
+// Copyright 2020 Loogin Mikhail & Lebedev Alexander
 #include "include/polygon_engine.h"
 #include <algorithm>
 #include <vector>
+#include <cmath>
+#include <stdexcept>
 
 polygon_engine::Polygon::Polygon(std::vector<Point> points) {
     tops = points;
@@ -34,7 +36,7 @@ static inline bool isIntersect(
 
 bool polygon_engine::Polygon::isConnectedness() {
     const int size = tops.size();
-    if (size < 4) throw ("It's not a polygon");
+    if (size < 4) throw std::invalid_argument("It's not a polygon");
     for (int i = 0; i < size - 2; i++) {
         for (int j = i + 1; j < size - 1; j++) {
             std::vector<Point> cp = {tops[i], tops[i+1], tops[j], tops[j + 1]};
@@ -46,7 +48,7 @@ bool polygon_engine::Polygon::isConnectedness() {
 }
 
 double polygon_engine::Polygon::getPerimeter() {
-    if (!isConnectedness()) throw ("Not connectedness");
+    if (!isConnectedness()) throw std::invalid_argument("Not connectedness");
     double perimeter = 0.;
     const int size = tops.size();
     for (int i = 0; i < size - 1; i++) {
@@ -58,7 +60,7 @@ double polygon_engine::Polygon::getPerimeter() {
 }
 
 double polygon_engine::Polygon::getArea() {
-    if (!isConnectedness()) throw ("Not connectedness");
+    if (!isConnectedness()) throw std::invalid_argument("Not connectedness");
     double area = 0.;
     if (tops.size() > 2) {
         int size = tops.size();

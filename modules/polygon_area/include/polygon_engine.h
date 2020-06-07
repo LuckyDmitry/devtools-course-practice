@@ -1,4 +1,4 @@
-// Copyright 2020 Dobrohotov Vitaly
+// Copyright 2020 Loogin Mikhail & Lebedev Alexander
 
 #ifndef MODULES_POLYGON_AREA_INCLUDE_POLYGON_ENGINE_H_
 #define MODULES_POLYGON_AREA_INCLUDE_POLYGON_ENGINE_H_
