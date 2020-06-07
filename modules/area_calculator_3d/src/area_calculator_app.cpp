@@ -1,7 +1,6 @@
 // Copyright 2020 Epremyan Norik
 #include "include/area_calculator_app.h"
 #define _USE_MATH_DEFINES
-#include <math.h>
 #include <string>
 #include <vector>
 #include <sstream>
@@ -49,21 +48,21 @@ figure* area_calculator_app::CreateFigure(std::vector<std::string> argv) {
     if (argv[0] == "cube") {
         Factory* FactoryCube = new Factory();
         _figure = FactoryCube->create("cube");
-        vec.push_back(atof(argv[1].c_str()));
+        vec.push_back(std::stod(argv[1].c_str()));
         _figure->SetValue(vec);
     } else {
         if (argv[0] == "cylinder") {
             Factory* FactoryCube = new Factory();
             _figure = FactoryCube->create("cylinder");
-            vec.push_back(atof(argv[1].c_str()));
-            vec.push_back(atof(argv[2].c_str()));
+            vec.push_back(std::stod(argv[1].c_str()));
+            vec.push_back(std::stod(argv[2].c_str()));
             _figure->SetValue(vec);
         } else {
             if (argv[0] == "cone") {
                 Factory* FactoryCube = new Factory();
                 _figure = FactoryCube->create("cone");
-                vec.push_back(atof(argv[1].c_str()));
-                vec.push_back(atof(argv[2].c_str()));
+                vec.push_back(std::stod(argv[1].c_str()));
+                vec.push_back(std::stod(argv[2].c_str()));
                 _figure->SetValue(vec);
             }
         }
