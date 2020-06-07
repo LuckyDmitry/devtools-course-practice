@@ -44,7 +44,7 @@ figure* area_calculator_app::CreateFigure(std::vector<std::string> argv) {
     std::vector<double> vec;
     Factory* FactoryCube = new Factory();
     _figure = FactoryCube->create(argv[0]);
-	for (int i = 1; i < argv.size(); i++) {
+    for (int i = 1; i < argv.size(); i++) {
         vec.push_back(std::stod(argv[i].c_str()));
     }
     _figure->SetValue(vec);
